@@ -3,20 +3,23 @@ package cl.awakelab.sprint6bootcamp.controller;
 import cl.awakelab.sprint6bootcamp.entity.Usuario;
 import cl.awakelab.sprint6bootcamp.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/usuario")
 public class UsuarioController {
 
     @Autowired
     IUsuarioService usuarioService;
 
-    @PostMapping
-    public Usuario create(@RequestBody Usuario usuario) {
-        return usuarioService.create(usuario);
+    @PostMapping("/crearUsuario")
+    public String create(@ModelAttribute Usuario usuario) {
+        usuarioService.create(usuario);
+        return "redirect:/usuario";
     }
 
     @GetMapping("/{id}")
@@ -25,8 +28,9 @@ public class UsuarioController {
     }
 
     @GetMapping
-    public List<Usuario> readAll() {
-        return usuarioService.readAll();
+    public String readAll(Model model) {
+        model.addAttribute("usuarios", usuarioService.readAll());
+        return "listarUsuarios";
     }
 
     @PutMapping
