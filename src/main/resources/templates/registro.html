@@ -16,39 +16,39 @@
     </div>
     <div class="container" style="min-height: 500px; max-width: 500px">
         <div style="height: 80px;"></div>
-      <form th:action="@{/usuario/crearUsuario}">
+      <form th:action="@{/usuario/crearUsuario}" method="POST">
         <div class="mb-3">
           <label for="run">RUN</label>
-          <input class="form-control" type="text" id="run" name="run" placeholder="Ingrese su RUN">
+          <input class="form-control" type="text" id="run" name="run" placeholder="Ingrese su RUN" required>
         </div>
         <div class="mb-3">
             <label for="nombre">Nombre</label>
-            <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre">
+            <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
         </div>
         <div class="mb-3">
             <label for="apellido1">Primer Apellido</label>
-            <input class="form-control" type="text" id="apellido1" name="apellido1" placeholder="Ingrese su primer apellido">
+            <input class="form-control" type="text" id="apellido1" name="apellido1" placeholder="Ingrese su primer apellido" required>
         </div>
         <div class="mb-3">
             <label for="email">Email</label>
-            <input class="form-control" type="email" id="email" name="email" placeholder="Ingrese su email">
+            <input class="form-control" type="email" id="email" name="email" placeholder="Ingrese su email" required>
         </div>
         <div class="mb-3">
           <label for="clave">Clave</label>
-          <input class="form-control" type="password" id="clave" name="clave" placeholder="Ingrese su Clave">
+          <input class="form-control" type="password" id="clave" name="clave" placeholder="Ingrese su Clave" required>
         </div>
         <div class="mb-3 row">
             <div class="col-6 form-check">
-                <input type="radio" name="tipo" id="empleador" value="empleador">
+                <input type="radio" name="perfil" id="empleador" value="3" required>
                 <label for="empleador">Empleador</label>
             </div>
             <div class="col-6 form-check">
-                <input type="radio" name="tipo" id="contador" value="contador">
+                <input type="radio" name="perfil" id="contador" value="2" required>
                 <label for="contador">Contador</label>
             </div>
         </div>
         <div class="text-center d-grid gap-2">
-            <button class="btn btn-success">Registrar</button>
+            <button class="btn btn-success" type="submit">Registrar</button>
         </div>
       </form>
     </div>

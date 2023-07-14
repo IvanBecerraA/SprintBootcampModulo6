@@ -1,5 +1,6 @@
 package cl.awakelab.sprint6bootcamp.controller;
 
+import cl.awakelab.sprint6bootcamp.entity.Perfil;
 import cl.awakelab.sprint6bootcamp.entity.Usuario;
 import cl.awakelab.sprint6bootcamp.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/usuario")
@@ -17,14 +19,20 @@ public class UsuarioController {
     IUsuarioService usuarioService;
 
     @PostMapping("/crearUsuario")
-    public String create(@ModelAttribute Usuario usuario) {
+    public String create(@ModelAttribute Usuario usuario, @RequestParam("perfil") int idPerfil) {
+        Perfil perfil = new Perfil();
+        perfil.setIdPerfil(idPerfil);
+        usuario.setPerfil(perfil);
+        usuario.setFechaCreacion(LocalDateTime.now());
         usuarioService.create(usuario);
         return "redirect:/usuario";
     }
 
-    @GetMapping("/{id}")
-    public Usuario readById(@PathVariable int id) {
-        return usuarioService.readById(id);
+
+    @RequestMapping("/obtenerUsuario")
+    @ResponseBody
+    public Optional<Usuario> readById(int id) {
+        return Optional.ofNullable(usuarioService.readById(id));
     }
 
     @GetMapping
@@ -33,14 +41,21 @@ public class UsuarioController {
         return "listarUsuarios";
     }
 
-    @PutMapping
-    public Usuario update(@RequestBody Usuario usuario) {
-        return usuarioService.update(usuario);
+    @PostMapping("/editarUsuario")
+    public String update(@ModelAttribute Usuario usuario, @RequestParam("perfil") int idPerfil) {
+        System.out.println("editarUsuario");
+        Perfil perfil = new Perfil();
+        perfil.setIdPerfil(idPerfil);
+        usuario.setPerfil(perfil);
+        usuario.setFechaCreacion(LocalDateTime.now());
+        usuarioService.update(usuario);
+        return "redirect:/usuario";
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable int id) {
+    @GetMapping("/{id}/eliminarUsuario")
+    public String delete(@PathVariable("id") int id) {
         usuarioService.delete(id);
+        return "redirect:/usuario";
     }
 
 }
