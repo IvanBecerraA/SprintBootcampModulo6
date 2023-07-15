@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body style="font-family: G-Roboto-n4, Arial !important">
-<header th:include="~{../static/html/header.html}"></header>
+<header th:insert="~{../static/html/header.html}"></header>
 <main>
   <div class="py-5" style="background-color: rgb(233, 236, 239); min-height: 750px;">
     <div class="container text-center">
@@ -16,29 +16,28 @@
     </div>
     <div class="container" style="max-width: 500px">
       <div style="height: 80px;"></div>
-      <form action="">
+      <form action="/menu" method="POST">
         <div class="mb-3">
           <label for="run">RUN</label>
-          <input class="form-control" type="text" id="run" name="run" placeholder="Ingrese su RUN">
+          <input class="form-control" type="text" id="run" name="run" placeholder="Ingrese su RUN" required>
         </div>
         <div class="mb-3">
           <label for="clave">Clave</label>
-          <input class="form-control" type="text" id="clave" name="clave" placeholder="Ingrese su Clave">
+          <input class="form-control" type="password" id="clave" name="clave" placeholder="Ingrese su Clave" required>
         </div>
         <div class="row">
           <div class="col-sm-6 p-3">
-            <a class="btn btn-success" th:href="@{/menu}">Iniciar Sesión</a>
+            <button class="btn btn-success" type="submit">Iniciar Sesión</button>
           </div>
           <div class="col-sm-6 p-3">
-            <button class="btn btn-primary">Registrarse</button>
+            <a class="btn btn-primary" th:href="@{/registro}">Registrarse</a>
           </div>
         </div>
-        
       </form>
     </div>
   </div>
 </main>
-<footer th:include="~{../static/html/footer.html}"></footer>
+<footer th:insert="~{../static/html/footer.html}"></footer>
 
 </body>
 </html>

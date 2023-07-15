@@ -16,7 +16,7 @@
       <h2 class="h2"><strong>Usuarios</strong></h2>
     </div>
     <div class="container my-4">
-      <button class="btn btn-success" type="button"><i class="fa-regular fa-square-plus fa-bounce fa-lg me-1"></i> Agregar Usuario</button>
+      <a class="btn btn-success" type="button" th:href="@{/usuario/crearUsuario}"><i class="fa-regular fa-square-plus fa-bounce fa-lg me-1"></i> Agregar Usuario</a>
     </div>
     <div class="container" style="min-height: 500px;">
       <div class="col-12 table-responsive">
@@ -87,8 +87,8 @@
                   </div>
                   <div class="mb-3">
                     <label for="run">RUN</label>
-                    <input hidden class="form-control" type="text" id="run" name="run" placeholder="Ingrese su RUN" required>
-                    <input disabled class="form-control" type="text" id="run2" name="run2" placeholder="Ingrese su RUN" required>
+                    <input hidden class="form-control" type="number" id="run" name="run" placeholder="Ingrese su RUN" required>
+                    <input disabled class="form-control" type="number" id="run2" name="run2" placeholder="Ingrese su RUN" required>
                   </div>
                   <div class="mb-3">
                     <label for="nombre">Nombre</label>
@@ -108,7 +108,7 @@
                   </div>
                   <div class="mb-3">
                     <label for="telefono">Telénofo</label>
-                    <input class="form-control" type="telefono" id="telefono" name="telefono" placeholder="Ingrese su teléfono (opcional)" required>
+                    <input class="form-control" type="number" id="telefono" name="telefono2" placeholder="Ingrese su teléfono (opcional)">
                   </div>
                   <div class="mb-3">
                     <label for="clave">Clave</label>

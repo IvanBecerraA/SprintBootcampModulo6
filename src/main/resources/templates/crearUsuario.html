@@ -8,47 +8,55 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body style="font-family: G-Roboto-n4, Arial !important">
-<header th:insert="~{../static/html/header.html}"></header>
+<header th:insert="~{../static/html/header2.html}"></header>
 <main>
   <div class="py-5" style="background-color: rgb(233, 236, 239);">
     <div class="container text-center">
-      <h2 class="h2"><strong>Registro de Usuario</strong></h2>
+      <h2 class="h2"><strong>Crear Nuevo Usuario</strong></h2>
     </div>
     <div class="container" style="min-height: 500px; max-width: 500px">
-        <div style="height: 80px;"></div>
-      <form th:action="@{/usuario/registrarUsuario}" method="POST">
+      <div style="height: 80px;"></div>
+      <form th:action="@{/usuario/crearUsuario}" method="POST">
         <div class="mb-3">
           <label for="run">RUN</label>
           <input class="form-control" type="number" id="run" name="run" placeholder="Ingrese su RUN" required>
         </div>
         <div class="mb-3">
-            <label for="nombre">Nombre</label>
-            <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
+          <label for="nombre">Nombre</label>
+          <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
         </div>
         <div class="mb-3">
-            <label for="apellido1">Primer Apellido</label>
-            <input class="form-control" type="text" id="apellido1" name="apellido1" placeholder="Ingrese su primer apellido" required>
+          <label for="apellido1">Primer Apellido</label>
+          <input class="form-control" type="text" id="apellido1" name="apellido1" placeholder="Ingrese su primer apellido" required>
         </div>
         <div class="mb-3">
-            <label for="email">Email</label>
-            <input class="form-control" type="email" id="email" name="email" placeholder="Ingrese su email" required>
+          <label for="apellido2">Segundo Apellido</label>
+          <input class="form-control" type="text" id="apellido2" name="apellido2" placeholder="Ingrese su segundo apellido (opcional)">
+        </div>
+        <div class="mb-3">
+          <label for="email">Email</label>
+          <input class="form-control" type="email" id="email" name="email" placeholder="Ingrese su email" required>
+        </div>
+        <div class="mb-3">
+          <label for="telefono">Teléfono</label>
+          <input class="form-control" type="number" id="telefono" name="telefono2" placeholder="Ingrese su teléfono (opcional)">
         </div>
         <div class="mb-3">
           <label for="clave">Clave</label>
           <input class="form-control" type="password" id="clave" name="clave" placeholder="Ingrese su clave" required>
         </div>
         <div class="mb-3 row">
-            <div class="col-6 form-check">
-                <input type="radio" name="perfil" id="empleador" value="3" required>
-                <label for="empleador">Empleador</label>
-            </div>
-            <div class="col-6 form-check">
-                <input type="radio" name="perfil" id="contador" value="2" required>
-                <label for="contador">Contador</label>
-            </div>
+          <div class="col-6 form-check">
+            <input type="radio" name="perfil" id="empleador" value="3" required>
+            <label for="empleador">Empleador</label>
+          </div>
+          <div class="col-6 form-check">
+            <input type="radio" name="perfil" id="contador" value="2" required>
+            <label for="contador">Contador</label>
+          </div>
         </div>
         <div class="text-center d-grid gap-2">
-            <button class="btn btn-success" type="submit">Registrar</button>
+          <button class="btn btn-success" type="submit">Registrar</button>
         </div>
       </form>
     </div>

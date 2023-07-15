@@ -18,14 +18,32 @@ public class UsuarioController {
     @Autowired
     IUsuarioService usuarioService;
 
+    @GetMapping("/crearUsuario")
+    public String mostrarCrearUsuario() {
+        return "/crearUsuario";
+    }
+
     @PostMapping("/crearUsuario")
-    public String create(@ModelAttribute Usuario usuario, @RequestParam("perfil") int idPerfil) {
+    public String create(@ModelAttribute Usuario usuario, @RequestParam("perfil") int idPerfil, @RequestParam("telefono2") String telefono2) {
+        if (!telefono2.isBlank()) {
+            usuario.setTelefono(Long.parseLong(telefono2));
+        }
         Perfil perfil = new Perfil();
         perfil.setIdPerfil(idPerfil);
         usuario.setPerfil(perfil);
         usuario.setFechaCreacion(LocalDateTime.now());
         usuarioService.create(usuario);
         return "redirect:/usuario";
+    }
+
+    @PostMapping("/registrarUsuario")
+    public String register(@ModelAttribute Usuario usuario, @RequestParam("perfil") int idPerfil) {
+        Perfil perfil = new Perfil();
+        perfil.setIdPerfil(idPerfil);
+        usuario.setPerfil(perfil);
+        usuario.setFechaCreacion(LocalDateTime.now());
+        usuarioService.create(usuario);
+        return "redirect:/login";
     }
 
 
@@ -42,7 +60,10 @@ public class UsuarioController {
     }
 
     @PostMapping("/editarUsuario")
-    public String update(@ModelAttribute Usuario usuario, @RequestParam("perfil") int idPerfil) {
+    public String update(@ModelAttribute Usuario usuario, @RequestParam("perfil") int idPerfil, @RequestParam("telefono2") String telefono2) {
+        if (!telefono2.isBlank()) {
+            usuario.setTelefono(Long.parseLong(telefono2));
+        }
         System.out.println("editarUsuario");
         Perfil perfil = new Perfil();
         perfil.setIdPerfil(idPerfil);

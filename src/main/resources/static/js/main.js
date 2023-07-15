@@ -22,14 +22,17 @@ const dataTableOptions = {
 $('document').ready(function () {
     $('#tablaUsuarios').DataTable(dataTableOptions);
 
-    $('#tablaUsuarios #eliminar').on('click', function (event) {
+    // Agregar eventos click a los botones de editar y eliminar
+    $('#tablaUsuarios tbody').on('click', '#eliminar', function (event) {
         event.preventDefault();
+
         var href = $(this).attr('href');
+
         $('#modalEliminar #confirmarEliminar').attr('href', href);
         $('#modalEliminar').modal();
-    })
+    });
 
-    $('#tablaUsuarios #editar').on('click', function (event) {
+    $('#tablaUsuarios tbody').on('click', '#editar', function (event) {
         event.preventDefault();
 
         var href = $(this).attr('href');
@@ -51,8 +54,8 @@ $('document').ready(function () {
             } else {
                 $('#empleador').prop('checked', true);
             }
-        })
+        });
 
         $('#modalEditar').modal();
-    })
-})
+    });
+});
