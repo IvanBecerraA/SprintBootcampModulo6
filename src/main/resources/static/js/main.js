@@ -20,10 +20,10 @@ const dataTableOptions = {
 }
 
 $('document').ready(function () {
-    $('#tablaUsuarios').DataTable(dataTableOptions);
+    $('#tabla').DataTable(dataTableOptions);
 
     // Agregar eventos click a los botones de editar y eliminar
-    $('#tablaUsuarios tbody').on('click', '#eliminar', function (event) {
+    $('#tabla tbody').on('click', '#btnTablaEliminar', function (event) {
         event.preventDefault();
 
         var href = $(this).attr('href');
@@ -32,7 +32,7 @@ $('document').ready(function () {
         $('#modalEliminar').modal();
     });
 
-    $('#tablaUsuarios tbody').on('click', '#editar', function (event) {
+    $('#tabla tbody').on('click', '#btnTablaEditarUsuario', function (event) {
         event.preventDefault();
 
         var href = $(this).attr('href');

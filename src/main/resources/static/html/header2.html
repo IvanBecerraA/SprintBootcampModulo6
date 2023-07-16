@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-md bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" th:href="@{/}">Logo</a>
+      <a class="navbar-brand" th:href="@{/menu}">Logo</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -20,10 +20,10 @@
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Empleado</a>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Empleador</a>
             <ul class="dropdown-menu" style="max-width: 100px">
-              <li><a class="dropdown-item" href="#">Agregar Empleado</a></li>
-              <li><a class="dropdown-item" href="#">Ver Empleados</a></li>
+              <li><a class="dropdown-item" href="#">Agregar Empleador</a></li>
+              <li><a class="dropdown-item" th:href="@{/empleador}">Ver Empleadores</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">

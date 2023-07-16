@@ -20,7 +20,7 @@
     </div>
     <div class="container" style="min-height: 500px;">
       <div class="col-12 table-responsive">
-        <table class="table table-striped table-hover pt-3 mb-2" id="tablaUsuarios">
+        <table class="table table-striped table-hover pt-3 mb-2" id="tabla">
           <thead class="table-secondary">
           <tr>
             <th>ID</th>
@@ -41,8 +41,8 @@
               <td th:text="${usuario.email}"></td>
               <td th:text="${usuario.perfil.descripcion}"></td>
               <td>
-                <button class="btn btn-primary" type="button" th:href="@{/usuario/obtenerUsuario(id=${usuario.idUsuario})}" data-bs-toggle="modal" id="editar" data-bs-target="#modalEditar"><i class="fa-regular fa-pen-to-square fa-beat"></i></button>
-                <button class="btn btn-danger" type="button" th:if="${usuario.perfil.descripcion != 'Administrador'}" th:href="@{/usuario/{id}/eliminarUsuario(id=${usuario.idUsuario})}" data-bs-toggle="modal" id="eliminar" data-bs-target="#modalEliminar"><i class="fa-solid fa-trash fa-fade"></i></button>
+                <button class="btn btn-primary" type="button" th:href="@{/usuario/obtenerUsuario(id=${usuario.idUsuario})}" data-bs-toggle="modal" id="btnTablaEditarUsuario" data-bs-target="#modalEditar"><i class="fa-regular fa-pen-to-square fa-beat"></i></button>
+                <button class="btn btn-danger" type="button" th:if="${usuario.perfil.descripcion != 'Administrador'}" th:href="@{/usuario/{id}/eliminarUsuario(id=${usuario.idUsuario})}" data-bs-toggle="modal" id="btnTablaEliminar" data-bs-target="#modalEliminar"><i class="fa-solid fa-trash fa-fade"></i></button>
               </td>
             </tr>
           </tbody>

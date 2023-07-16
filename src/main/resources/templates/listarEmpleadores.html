@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquidaciones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" rel="stylesheet"/>
+</head>
+<body style="font-family: G-Roboto-n4, Arial !important">
+<header th:insert="~{../static/html/header2.html}"></header>
+<main>
+    <div class="py-5" style="background-color: rgb(233, 236, 239);">
+        <div class="container text-center py-2">
+            <h2 class="h2"><strong>Empleadores</strong></h2>
+        </div>
+        <div class="container my-4">
+            <a class="btn btn-success" type="button" th:href="@{/empleador/crearEmpleador}"><i class="fa-regular fa-square-plus fa-bounce fa-lg me-1"></i> Agregar Empleador</a>
+        </div>
+        <div class="container" style="min-height: 500px;">
+            <div class="col-12 table-responsive">
+                <table class="table table-striped table-hover pt-3 mb-2" id="tabla">
+                    <thead class="table-secondary">
+                    <tr>
+                        <th>ID</th>
+                        <th>RUN</th>
+                        <th>NOMBRE</th>
+                        <th>PRIMER APELLIDO</th>
+                        <th>EMAIL</th>
+                        <th>OPCIONES</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="empleador: ${empleadores}">
+                        <td th:text="${empleador.idEmpleador}"></td>
+                        <td th:text="${empleador.run}"></td>
+                        <td th:text="${empleador.nombre}"></td>
+                        <td th:text="${empleador.apellido1}"></td>
+                        <td th:text="${empleador.email}"></td>
+                        <td>
+                            <button class="btn btn-primary" type="button" th:href="@{/empleador/obtenerEmpleador(id=${empleador.idEmpleador})}" data-bs-toggle="modal" id="btnTablaEditarEmpleador" data-bs-target="#modalEditar"><i class="fa-regular fa-pen-to-square fa-beat"></i></button>
+                            <button class="btn btn-danger" type="button" th:href="@{/empleador/{id}/eliminarEmpleador(id=${empleador.idEmpleador})}" data-bs-toggle="modal" id="btnTablaEliminar" data-bs-target="#modalEliminar"><i class="fa-solid fa-trash fa-fade"></i></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="etiquetaModal1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="etiquetaModal1">Confirmar Eliminación</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Está seguro de eliminar este dato?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+                    <a href="" type="submit" class="btn btn-danger" id="confirmarEliminar">Confirmar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+<footer th:insert="~{../static/html/footer.html}"></footer>
+
+<script type="text/javascript" src="../static/js/main.js" th:src="@{/js/main.js}"></script>
+</body>
+</html>
