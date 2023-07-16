@@ -35,7 +35,12 @@ public class EmpleadorController {
         model.addAttribute("empleadores", empleadoresDelUsuario);
         return "listarEmpleadores";
     }
-    
+
+    @GetMapping("/{id}/eliminarEmpleador")
+    public String delete(@PathVariable("id") int id) {
+        empleadorService.delete(id);
+        return "redirect:/empleador";
+    }
     
     /*
     @GetMapping("/crearEmpleador")
