@@ -12,12 +12,12 @@
 <main>
   <div class="py-5" style="background-color: rgb(233, 236, 239);">
     <div class="container text-center">
-      <h1 class="h1 p-4"><strong>Bienvenido</strong></h1>
+      <h1 class="h1 p-4"><strong>Bienvenido/a, <span th:text="${session.usuario.nombre}"></span></strong></h1>
       <h2 class="h2 pb-5">¿Qué deseas hacer?</h2>
     </div>
     <div class="container text-center" style="min-height: 500px;">
-       <div class="row">
-        <div class="col-6 col-md-3" style="display: flex; justify-content: center;">
+       <div class="row align-items-center justify-content-around">
+        <div th:if="${session.usuario.nombre.equals('administrador')}" class="col-6 col-md-3" style="display: flex; justify-content: center;">
             <a th:href="@{/usuario/crearUsuario}" class="btn btn-dark m-3" style="height: 80px; width: 150px; display: flex ; justify-content: center; align-items: center;">Crear Usuario</a>
         </div>
         <div class="col-6 col-md-3" style="display: flex; justify-content: center;">
@@ -31,7 +31,7 @@
         </div>
        </div>
        <div class="row align-items-center justify-content-around">
-        <div class="col-6 col-md-3" style="display: flex; justify-content: center;">
+        <div th:if="${session.usuario.nombre.equals('administrador')}" class="col-6 col-md-3" style="display: flex; justify-content: center;">
             <a th:href="@{/usuario}" class="btn btn-dark m-3" style="height: 80px; width: 150px; display: flex ; justify-content: center; align-items: center;">Ver y/o editar Usuarios</a>
         </div>
         <div class="col-6 col-md-3" style="display: flex; justify-content: center;">

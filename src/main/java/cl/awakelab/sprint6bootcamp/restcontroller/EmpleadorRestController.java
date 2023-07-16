@@ -1,27 +1,20 @@
-package cl.awakelab.sprint6bootcamp.controller;
+package cl.awakelab.sprint6bootcamp.restcontroller;
 
 import cl.awakelab.sprint6bootcamp.entity.Empleador;
 import cl.awakelab.sprint6bootcamp.service.IEmpleadorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
-@RequestMapping("/empleador")
-public class EmpleadorController {
+@RestController
+@RequestMapping("/api/empleador")
+public class EmpleadorRestController {
 
     @Autowired
     IEmpleadorService empleadorService;
 
-    @GetMapping("/crearEmpleador")
-    public String mostrarCrearEmpleador() {
-        return "crearEmpleador";
-    }
-
-    /*
-    @PostMapping("/crearEmpleador")
+    @PostMapping
     public Empleador create(@RequestBody Empleador empleador) {
         return empleadorService.create(empleador);
     }
@@ -44,5 +37,5 @@ public class EmpleadorController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable int id) {
         empleadorService.delete(id);
-    }*/
+    }
 }
