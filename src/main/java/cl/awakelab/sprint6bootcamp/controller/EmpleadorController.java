@@ -19,6 +19,22 @@ public class EmpleadorController {
     @Autowired
     IEmpleadorService empleadorService;
 
+    @GetMapping("/crearEmpleador")
+    public String mostrarCrearEmpleador() {
+        return "/crearEmpleador";
+    }
+
+    @PostMapping("/crearEmpleador")
+    public String crearEmpleador(@ModelAttribute Empleador empleador, @RequestParam("telefono2") String telefono2, HttpSession session) {
+        if (!telefono2.isBlank()) {
+            empleador.setTelefono(Long.parseLong(telefono2));
+        }
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        empleador.setUsuario(usuario);
+        empleadorService.create(empleador);
+        return "redirect:/empleador";
+    }
+
     @GetMapping
     public String readAll(Model model, HttpSession session) {
 
