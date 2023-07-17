@@ -1,7 +1,6 @@
 package cl.awakelab.sprint6bootcamp.controller;
 
 import cl.awakelab.sprint6bootcamp.entity.Empleador;
-import cl.awakelab.sprint6bootcamp.entity.Perfil;
 import cl.awakelab.sprint6bootcamp.entity.Usuario;
 import cl.awakelab.sprint6bootcamp.service.IEmpleadorService;
 import jakarta.servlet.http.HttpSession;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -58,6 +56,13 @@ public class EmpleadorController {
         }
 
         model.addAttribute("empleadores", empleadoresDelUsuario);
+        return "listarEmpleadores";
+    }
+
+    @GetMapping("/admin")
+    public String readAllAdmin(Model model) {
+
+        model.addAttribute("empleadores", empleadorService.readAll());
         return "listarEmpleadores";
     }
 

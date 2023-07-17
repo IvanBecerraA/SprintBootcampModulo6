@@ -17,10 +17,10 @@
     </div>
     <div class="container text-center" style="min-height: 500px;">
        <div class="row align-items-center justify-content-around">
-        <div th:if="${session.usuario.nombre.equals('administrador')}" class="col-6 col-md-3" style="display: flex; justify-content: center;">
+        <div th:if="${session.usuario.perfil.idPerfil == 1}" class="col-6 col-md-3" style="display: flex; justify-content: center;">
             <a th:href="@{/usuario/crearUsuario}" class="btn btn-dark m-3" style="height: 80px; width: 150px; display: flex ; justify-content: center; align-items: center;">Crear Usuario</a>
         </div>
-        <div class="col-6 col-md-3" style="display: flex; justify-content: center;">
+        <div th:if="${session.usuario.perfil.idPerfil != 3}" class="col-6 col-md-3" style="display: flex; justify-content: center;">
             <a th:href="@{/empleador/crearEmpleador}" class="btn btn-dark m-3" style="height: 80px; width: 150px; display: flex ; justify-content: center; align-items: center;">Crear Empleador</a>
         </div>
         <div class="col-6 col-md-3" style="display: flex; justify-content: center;">
@@ -31,12 +31,15 @@
         </div>
        </div>
        <div class="row align-items-center justify-content-around">
-        <div th:if="${session.usuario.nombre.equals('administrador')}" class="col-6 col-md-3" style="display: flex; justify-content: center;">
+        <div th:if="${session.usuario.perfil.idPerfil == 1}" class="col-6 col-md-3" style="display: flex; justify-content: center;">
             <a th:href="@{/usuario}" class="btn btn-dark m-3" style="height: 80px; width: 150px; display: flex ; justify-content: center; align-items: center;">Ver y/o editar Usuarios</a>
         </div>
-        <div class="col-6 col-md-3" style="display: flex; justify-content: center;">
+        <div th:if="${session.usuario.perfil.idPerfil == 2}" class="col-6 col-md-3" style="display: flex; justify-content: center;">
             <a th:href="@{/empleador}" class="btn btn-dark m-3" style="height: 80px; width: 150px; display: flex ; justify-content: center; align-items: center;">Ver y/o editar Empleador</a>
         </div>
+       <div th:if="${session.usuario.perfil.idPerfil == 1}" class="col-6 col-md-3" style="display: flex; justify-content: center;">
+           <a th:href="@{/empleador/admin}" class="btn btn-dark m-3" style="height: 80px; width: 150px; display: flex ; justify-content: center; align-items: center;">Ver y/o editar Empleador</a>
+       </div>
         <div class="col-6 col-md-3" style="display: flex; justify-content: center;">
             <a href="" class="btn btn-dark m-3" style="height: 80px; width: 150px; display: flex ; justify-content: center; align-items: center;">Ver y/o editar Trabajador</a>
         </div>
