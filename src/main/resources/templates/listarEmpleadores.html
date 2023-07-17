@@ -67,6 +67,64 @@
         </div>
     </div>
 
+    <div class="modal fade " id="modalEditar" tabindex="-1" aria-labelledby="etiquetaModal2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="etiquetaModal2">Editar Empleador</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row d-flex justify-content-center justify-content-center">
+                            <div class="col-lg-6 col-sm-12 rounded shadow p-3">
+                                <form th:action="@{/empleador/editarEmpleador}" method="POST">
+                                    <div class="mb-3">
+                                        <label hidden for="idEmpleador">ID</label>
+                                        <input type="hidden" id="idEmpleador" name="idEmpleador">
+                                        <input type="hidden" id="idUsuario" name="idUsuario">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="run">RUN</label>
+                                        <input type="hidden" id="run" name="run">
+                                        <input disabled class="form-control" type="number" id="run2" name="run2" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="nombre">Nombre</label>
+                                        <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="apellido1">Primer Apellido</label>
+                                        <input class="form-control" type="text" id="apellido1" name="apellido1" placeholder="Ingrese su primer apellido" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="apellido2">Segundo Apellido (opcional)</label>
+                                        <input class="form-control" type="text" id="apellido2" name="apellido2" placeholder="Ingrese su segundo apellido">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="direccion">Dirección (opcional)</label>
+                                        <input class="form-control" type="text" id="direccion" name="direccion" placeholder="Ingrese su dirección">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email">Email (opcional)</label>
+                                        <input class="form-control" type="email" id="email" name="email" placeholder="Ingrese su email">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="telefono">Teléfono (opcional)</label>
+                                        <input class="form-control" type="number" id="telefono" name="telefono2" placeholder="Ingrese su teléfono">
+                                    </div>
+                                    <div class="text-center d-grid gap-2">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+                                        <button class="btn btn-success" type="submit">Guardar cambios</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </main>
 <footer th:insert="~{../static/html/footer.html}"></footer>

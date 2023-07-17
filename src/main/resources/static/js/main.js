@@ -58,4 +58,27 @@ $('document').ready(function () {
 
         $('#modalEditar').modal();
     });
+
+    $('#tabla tbody').on('click', '#btnTablaEditarEmpleador', function (event) {
+        event.preventDefault();
+
+        var href = $(this).attr('href');
+
+        $.get(href, function (empleador, status) {
+            console.log(empleador);
+            $('#idEmpleador').val(empleador.idEmpleador);
+            $('#run').val(empleador.run);
+            $('#run2').val(empleador.run);
+            $('#nombre').val(empleador.nombre);
+            $('#apellido1').val(empleador.apellido1);
+            $('#apellido2').val(empleador.apellido2);
+            $('#direccion').val(empleador.direccion);
+            $('#email').val(empleador.email);
+            $('#telefono').val(empleador.telefono);
+            $('#idUsuario').val(empleador.usuario.idUsuario);
+
+        });
+
+        $('#modalEditar').modal();
+    });
 });

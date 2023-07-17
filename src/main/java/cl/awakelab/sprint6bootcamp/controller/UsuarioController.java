@@ -46,7 +46,6 @@ public class UsuarioController {
         return "redirect:/login";
     }
 
-
     @RequestMapping("/obtenerUsuario")
     @ResponseBody
     public Optional<Usuario> readById(int id) {
@@ -61,10 +60,10 @@ public class UsuarioController {
 
     @PostMapping("/editarUsuario")
     public String update(@ModelAttribute Usuario usuario, @RequestParam("perfil") int idPerfil, @RequestParam("telefono2") String telefono2) {
+
         if (!telefono2.isBlank()) {
             usuario.setTelefono(Long.parseLong(telefono2));
         }
-        System.out.println("editarUsuario");
         Perfil perfil = new Perfil();
         perfil.setIdPerfil(idPerfil);
         usuario.setPerfil(perfil);

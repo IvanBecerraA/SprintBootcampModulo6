@@ -83,12 +83,12 @@
                 <form th:action="@{/usuario/editarUsuario}" method="POST">
                   <div class="mb-3">
                     <label hidden for="idUsuario">ID</label>
-                    <input hidden class="form-control" type="text" id="idUsuario" name="idUsuario" placeholder="Ingrese su RUN" required>
+                    <input hidden class="form-control" type="text" id="idUsuario" name="idUsuario" required>
                   </div>
                   <div class="mb-3">
                     <label for="run">RUN</label>
-                    <input hidden class="form-control" type="number" id="run" name="run" placeholder="Ingrese su RUN" required>
-                    <input disabled class="form-control" type="number" id="run2" name="run2" placeholder="Ingrese su RUN" required>
+                    <input hidden class="form-control" type="number" id="run" name="run" required>
+                    <input disabled class="form-control" type="number" id="run2" name="run2" required>
                   </div>
                   <div class="mb-3">
                     <label for="nombre">Nombre</label>
@@ -99,16 +99,16 @@
                     <input class="form-control" type="text" id="apellido1" name="apellido1" placeholder="Ingrese su primer apellido" required>
                   </div>
                   <div class="mb-3">
-                    <label for="apellido2">Segundo Apellido</label>
-                    <input class="form-control" type="text" id="apellido2" name="apellido2" placeholder="Ingrese su segundo apellido (opcional)">
+                    <label for="apellido2">Segundo Apellido (opcional)</label>
+                    <input class="form-control" type="text" id="apellido2" name="apellido2" placeholder="Ingrese su segundo apellido">
                   </div>
                   <div class="mb-3">
                     <label for="email">Email</label>
                     <input class="form-control" type="email" id="email" name="email" placeholder="Ingrese su email" required>
                   </div>
                   <div class="mb-3">
-                    <label for="telefono">Telénofo</label>
-                    <input class="form-control" type="number" id="telefono" name="telefono2" placeholder="Ingrese su teléfono (opcional)">
+                    <label for="telefono">Telénofo (opcional)</label>
+                    <input class="form-control" type="number" id="telefono" name="telefono2" placeholder="Ingrese su teléfono">
                   </div>
                   <div class="mb-3">
                     <label for="clave">Clave</label>
