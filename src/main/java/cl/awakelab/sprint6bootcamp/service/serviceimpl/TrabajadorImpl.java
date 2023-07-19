@@ -1,11 +1,17 @@
 package cl.awakelab.sprint6bootcamp.service.serviceimpl;
 
+import cl.awakelab.sprint6bootcamp.entity.Empleador;
 import cl.awakelab.sprint6bootcamp.entity.Trabajador;
+import cl.awakelab.sprint6bootcamp.entity.Usuario;
+import cl.awakelab.sprint6bootcamp.repository.IEmpleadorRepository;
 import cl.awakelab.sprint6bootcamp.repository.ITrabajadorRepository;
+import cl.awakelab.sprint6bootcamp.repository.IUsuarioRepository;
 import cl.awakelab.sprint6bootcamp.service.ITrabajadorService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -14,6 +20,12 @@ public class TrabajadorImpl implements ITrabajadorService {
 
     @Autowired
     ITrabajadorRepository trabajadorRepository;
+
+    @Autowired
+    IUsuarioRepository usuarioRepository;
+
+    @Autowired
+    IEmpleadorRepository empleadorRepository;
 
     @Override
     public Trabajador create(Trabajador trabajador) {
@@ -27,7 +39,41 @@ public class TrabajadorImpl implements ITrabajadorService {
 
     @Override
     public List<Trabajador> readAll() {
-        return trabajadorRepository.findAll();
+        List<Trabajador> trabajadores = trabajadorRepository.findAll();
+        return trabajadores;
+
+    }
+
+    @Override
+    public List<Trabajador> readAll(HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        List<Trabajador> trabajadores = trabajadorRepository.findAll();
+        List<Empleador> empleadores = empleadorRepository.findAll();
+
+
+        if (usuario.getPerfil().getIdPerfil() == 1) {
+            return trabajadores;
+        } else if (usuario.getPerfil().getIdPerfil() == 2) {
+            List<Trabajador> trabajadoresEmpleadoresContador = new ArrayList<>();
+            for (Empleador empleador : empleadores) {
+                if (empleador.getUsuario().getIdUsuario() == usuario.getIdUsuario()) {
+                    List<Trabajador> trabajadoresAux = empleador.getListaTrabajadores();
+                    for (Trabajador trabajador : trabajadoresAux) {
+                        trabajadoresEmpleadoresContador.add(trabajador);
+                    }
+                }
+            }
+            return trabajadoresEmpleadoresContador;
+        } else if (usuario.getPerfil().getIdPerfil() == 3) {
+            for (Empleador empleador : empleadores) {
+                if (empleador.getUsuario().getIdUsuario() == usuario.getIdUsuario()) {
+                    trabajadores = empleador.getListaTrabajadores();
+                }
+            }
+            return trabajadores;
+        } else {
+            return null;
+        }
     }
 
     @Override
