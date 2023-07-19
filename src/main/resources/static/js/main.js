@@ -48,6 +48,7 @@ $('document').ready(function () {
             $('#email').val(usuario.email);
             $('#telefono').val(usuario.telefono);
             $('#clave').val(usuario.clave);
+            $('#fechaCreacion').val(usuario.fechaCreacion);
 
             if (usuario.perfil.idPerfil == 2) {
                 $('#contador').prop('checked', true);

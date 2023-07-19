@@ -32,7 +32,6 @@ public class Empleador {
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
 
-
     @ManyToMany(mappedBy = "listaEmpleadores")
     private List<Trabajador> listaTrabajadores;
 
