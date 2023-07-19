@@ -39,7 +39,8 @@
             <td th:text="${trabajador.apellido1}"></td>
             <td th:text="${trabajador.email}"></td>
             <td>
-              
+              <button class="btn btn-primary" type="button" th:href="@{/trabajador/obtenerTrabajador(id=${trabajador.idTrabajador})}" data-bs-toggle="modal" id="btnTablaEditarTrabajador" data-bs-target="#modalEditar"><i class="fa-regular fa-pen-to-square fa-beat"></i></button>
+              <button class="btn btn-danger" type="button" th:href="@{/trabajador/{id}/eliminarTrabajador(id=${trabajador.idTrabajador})}" data-bs-toggle="modal" id="btnTablaEliminar" data-bs-target="#modalEliminar"><i class="fa-solid fa-trash fa-fade"></i></button>
             </td>
           </tr>
           </tbody>

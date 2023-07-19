@@ -1,11 +1,13 @@
 package cl.awakelab.sprint6bootcamp.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "liquidacion")
 public class Liquidacion {

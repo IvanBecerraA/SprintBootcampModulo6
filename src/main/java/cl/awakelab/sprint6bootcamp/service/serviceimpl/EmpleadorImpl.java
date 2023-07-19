@@ -1,11 +1,14 @@
 package cl.awakelab.sprint6bootcamp.service.serviceimpl;
 
 import cl.awakelab.sprint6bootcamp.entity.Empleador;
+import cl.awakelab.sprint6bootcamp.entity.Usuario;
 import cl.awakelab.sprint6bootcamp.repository.IEmpleadorRepository;
 import cl.awakelab.sprint6bootcamp.service.IEmpleadorService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -29,6 +32,34 @@ public class EmpleadorImpl implements IEmpleadorService {
     @Override
     public List<Empleador> readAll() {
         return empleadorRepository.findAll();
+    }
+
+    @Override
+    public List<Empleador> readByUser(HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        List<Empleador> empleadores = empleadorRepository.findAll();
+
+        if (usuario.getPerfil().getIdPerfil() == 1) {
+            return empleadores;
+        } else if (usuario.getPerfil().getIdPerfil() == 2) {
+            List<Empleador> empleadoresContador = new ArrayList<>();
+            for (Empleador empleador : empleadores) {
+                if (empleador.getUsuario().getIdUsuario() == usuario.getIdUsuario()) {
+                    empleadoresContador.add(empleador);
+                }
+            }
+            return empleadoresContador;
+        } else if (usuario.getPerfil().getIdPerfil() == 3) {
+            List<Empleador> empleadoresUno = new ArrayList<>();
+            for (Empleador empleador : empleadores) {
+                if (empleador.getUsuario().getIdUsuario() == usuario.getIdUsuario()) {
+                    empleadoresUno.add(empleador);
+                }
+            }
+            return empleadoresUno;
+        } else {
+            return null;
+        }
     }
 
     @Override

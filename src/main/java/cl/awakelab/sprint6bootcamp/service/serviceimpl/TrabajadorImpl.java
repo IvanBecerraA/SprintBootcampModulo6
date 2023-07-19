@@ -33,6 +33,17 @@ public class TrabajadorImpl implements ITrabajadorService {
     }
 
     @Override
+    public Trabajador create(Trabajador trabajador, Empleador empleador) {
+        List<Empleador> empleadores = new ArrayList<>();
+        if (trabajador.getListaEmpleadores() != null) {
+            empleadores = trabajador.getListaEmpleadores();
+        }
+        empleadores.add(empleador);
+        trabajador.setListaEmpleadores(empleadores);
+        return trabajadorRepository.save(trabajador);
+    }
+
+    @Override
     public Trabajador readById(int id) {
         return trabajadorRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Trabajador no encontrado"));
     }
@@ -49,7 +60,6 @@ public class TrabajadorImpl implements ITrabajadorService {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         List<Trabajador> trabajadores = trabajadorRepository.findAll();
         List<Empleador> empleadores = empleadorRepository.findAll();
-
 
         if (usuario.getPerfil().getIdPerfil() == 1) {
             return trabajadores;
