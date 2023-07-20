@@ -2,6 +2,7 @@ package cl.awakelab.sprint6bootcamp.controller;
 
 import cl.awakelab.sprint6bootcamp.entity.Empleador;
 import cl.awakelab.sprint6bootcamp.entity.Trabajador;
+import cl.awakelab.sprint6bootcamp.entity.Usuario;
 import cl.awakelab.sprint6bootcamp.service.IEmpleadorService;
 import cl.awakelab.sprint6bootcamp.service.IInstitucionPrevicionService;
 import cl.awakelab.sprint6bootcamp.service.IInstitucionSaludService;
@@ -33,7 +34,8 @@ public class TrabajadorController {
 
     @GetMapping("/crearTrabajador")
     public String mostrarCrearTrabajador(Model model, HttpSession session) {
-        model.addAttribute("empleadores", empleadorService.readByUser(session));
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        model.addAttribute("empleadores", empleadorService.readByUser(usuario));
         model.addAttribute("institucionesSalud", institucionSaludService.readAll());
         model.addAttribute("institucionesPrevision", institucionPrevicionService.readAll());
         return "/crearTrabajador";

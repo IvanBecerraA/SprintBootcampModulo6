@@ -35,8 +35,7 @@ public class EmpleadorImpl implements IEmpleadorService {
     }
 
     @Override
-    public List<Empleador> readByUser(HttpSession session) {
-        Usuario usuario = (Usuario) session.getAttribute("usuario");
+    public List<Empleador> readByUser(Usuario usuario) {
         List<Empleador> empleadores = empleadorRepository.findAll();
 
         if (usuario.getPerfil().getIdPerfil() == 1) {

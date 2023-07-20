@@ -107,6 +107,11 @@ public class TrabajadorImpl implements ITrabajadorService {
     }
 
     @Override
+    public List<Trabajador> readByEmployer(Empleador empleador) {
+        return null;
+    }
+
+    @Override
     public Trabajador update(Trabajador trabajador) {
         return trabajadorRepository.save(trabajador);
     }

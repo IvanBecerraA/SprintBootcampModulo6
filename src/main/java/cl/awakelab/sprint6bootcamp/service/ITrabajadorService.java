@@ -14,6 +14,7 @@ public interface ITrabajadorService {
     Trabajador readById(int id);
     List<Trabajador> readAll();
     List<Trabajador> readAll(HttpSession session);
+    List<Trabajador> readByEmployer(Empleador empleador);
     Trabajador update(Trabajador trabajador);
     void delete(int id);
 
