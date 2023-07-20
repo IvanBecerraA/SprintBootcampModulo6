@@ -6,6 +6,7 @@ import cl.awakelab.sprint6bootcamp.entity.Usuario;
 import cl.awakelab.sprint6bootcamp.repository.IEmpleadorRepository;
 import cl.awakelab.sprint6bootcamp.repository.ITrabajadorRepository;
 import cl.awakelab.sprint6bootcamp.repository.IUsuarioRepository;
+import cl.awakelab.sprint6bootcamp.service.IEmpleadorService;
 import cl.awakelab.sprint6bootcamp.service.ITrabajadorService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class TrabajadorImpl implements ITrabajadorService {
     @Autowired
     IEmpleadorRepository empleadorRepository;
 
+    @Autowired
+    IEmpleadorService empleadorService;
+
     @Override
     public Trabajador create(Trabajador trabajador) {
         return trabajadorRepository.save(trabajador);
@@ -40,6 +44,20 @@ public class TrabajadorImpl implements ITrabajadorService {
         }
         empleadores.add(empleador);
         trabajador.setListaEmpleadores(empleadores);
+        return trabajadorRepository.save(trabajador);
+    }
+
+    @Override
+    public Trabajador create(Trabajador trabajador, List<Integer> listaEmpleadoresSeleccionados) {
+        if (listaEmpleadoresSeleccionados != null && !listaEmpleadoresSeleccionados.isEmpty()) {
+            List<Empleador> empleadoresSeleccionados = new ArrayList<>();
+            for (Integer idEmpleador : listaEmpleadoresSeleccionados) {
+                Empleador empleador = empleadorService.readById(idEmpleador);
+                empleadoresSeleccionados.add(empleador);
+            }
+            trabajador.setListaEmpleadores(empleadoresSeleccionados);
+        }
+
         return trabajadorRepository.save(trabajador);
     }
 
@@ -69,7 +87,9 @@ public class TrabajadorImpl implements ITrabajadorService {
                 if (empleador.getUsuario().getIdUsuario() == usuario.getIdUsuario()) {
                     List<Trabajador> trabajadoresAux = empleador.getListaTrabajadores();
                     for (Trabajador trabajador : trabajadoresAux) {
-                        trabajadoresEmpleadoresContador.add(trabajador);
+                        if (!trabajadoresEmpleadoresContador.contains(trabajador)){
+                            trabajadoresEmpleadoresContador.add(trabajador);
+                        }
                     }
                 }
             }

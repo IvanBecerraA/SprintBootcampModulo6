@@ -10,6 +10,7 @@ public interface ITrabajadorService {
 
     Trabajador create(Trabajador trabajador);
     Trabajador create(Trabajador trabajador, Empleador empleador);
+    Trabajador create(Trabajador trabajador, List<Integer> empleadores);
     Trabajador readById(int id);
     List<Trabajador> readAll();
     List<Trabajador> readAll(HttpSession session);

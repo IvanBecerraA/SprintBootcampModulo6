@@ -19,7 +19,7 @@
       <form th:action="@{/trabajador/crearTrabajador}" method="POST">
         <div class="mb-3">
           <label for="empleador">Empleador</label>
-          <select class="form-select" id="empleador" name="empleador" aria-label="Floating label select example" required>
+          <select class="form-select" id="empleador" name="listaEmpleadores" aria-label="Floating label select example" multiple size="10" required>
             <option th:each="empleador: ${empleadores}" th:value="${empleador.idEmpleador}" th:text="'RUN: ' + ${empleador.run} + ', nombre: '+ ${empleador.nombre}"></option>
           </select>
         </div>
