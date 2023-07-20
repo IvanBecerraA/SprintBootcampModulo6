@@ -28,9 +28,6 @@ public class TrabajadorImpl implements ITrabajadorService {
     @Autowired
     IEmpleadorRepository empleadorRepository;
 
-    @Autowired
-    IEmpleadorService empleadorService;
-
     @Override
     public Trabajador create(Trabajador trabajador) {
         return trabajadorRepository.save(trabajador);
@@ -52,7 +49,7 @@ public class TrabajadorImpl implements ITrabajadorService {
         if (listaEmpleadoresSeleccionados != null && !listaEmpleadoresSeleccionados.isEmpty()) {
             List<Empleador> empleadoresSeleccionados = new ArrayList<>();
             for (Integer idEmpleador : listaEmpleadoresSeleccionados) {
-                Empleador empleador = empleadorService.readById(idEmpleador);
+                Empleador empleador = empleadorRepository.findById(idEmpleador).orElseThrow(() -> new NoSuchElementException("Empleador no encontrado"));
                 empleadoresSeleccionados.add(empleador);
             }
             trabajador.setListaEmpleadores(empleadoresSeleccionados);

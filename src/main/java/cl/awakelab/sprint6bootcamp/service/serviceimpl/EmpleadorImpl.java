@@ -1,9 +1,11 @@
 package cl.awakelab.sprint6bootcamp.service.serviceimpl;
 
 import cl.awakelab.sprint6bootcamp.entity.Empleador;
+import cl.awakelab.sprint6bootcamp.entity.Trabajador;
 import cl.awakelab.sprint6bootcamp.entity.Usuario;
 import cl.awakelab.sprint6bootcamp.repository.IEmpleadorRepository;
 import cl.awakelab.sprint6bootcamp.service.IEmpleadorService;
+import cl.awakelab.sprint6bootcamp.service.ITrabajadorService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ public class EmpleadorImpl implements IEmpleadorService {
 
     @Autowired
     IEmpleadorRepository empleadorRepository;
+    @Autowired
+    ITrabajadorService trabajadorService;
 
 
     @Override
@@ -68,6 +72,12 @@ public class EmpleadorImpl implements IEmpleadorService {
 
     @Override
     public void delete(int id) {
+        Empleador empleador = this.readById(id);
+        List<Trabajador> trabajadoresEmpleadoresUsuario = empleador.getListaTrabajadores();
+        for (Trabajador trabajador : trabajadoresEmpleadoresUsuario) {
+            trabajadorService.delete(trabajador.getIdTrabajador());
+        }
+
         empleadorRepository.deleteById(id);
     }
 }
