@@ -67,7 +67,6 @@ public class TrabajadorImpl implements ITrabajadorService {
     public List<Trabajador> readAll() {
         List<Trabajador> trabajadores = trabajadorRepository.findAll();
         return trabajadores;
-
     }
 
     @Override
@@ -110,6 +109,20 @@ public class TrabajadorImpl implements ITrabajadorService {
 
     @Override
     public Trabajador update(Trabajador trabajador) {
+        return trabajadorRepository.save(trabajador);
+    }
+
+    @Override
+    public Trabajador update(Trabajador trabajador, List<Integer> listaEmpleadoresSeleccionados) {
+        if (listaEmpleadoresSeleccionados != null && !listaEmpleadoresSeleccionados.isEmpty()) {
+            List<Empleador> empleadoresSeleccionados = new ArrayList<>();
+            for (Integer idEmpleador : listaEmpleadoresSeleccionados) {
+                Empleador empleador = empleadorRepository.findById(idEmpleador).orElseThrow(() -> new NoSuchElementException("Empleador no encontrado"));
+                empleadoresSeleccionados.add(empleador);
+            }
+            trabajador.setListaEmpleadores(empleadoresSeleccionados);
+        }
+
         return trabajadorRepository.save(trabajador);
     }
 

@@ -1,6 +1,5 @@
 package cl.awakelab.sprint6bootcamp.controller;
 
-import cl.awakelab.sprint6bootcamp.entity.Empleador;
 import cl.awakelab.sprint6bootcamp.entity.Trabajador;
 import cl.awakelab.sprint6bootcamp.entity.Usuario;
 import cl.awakelab.sprint6bootcamp.service.IEmpleadorService;
@@ -13,8 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/trabajador")
@@ -55,8 +54,25 @@ public class TrabajadorController {
 
     @GetMapping()
     public String readAll(Model model, HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        model.addAttribute("empleadores", empleadorService.readByUser(usuario));
         model.addAttribute("trabajadores", trabajadorService.readAll(session));
+        model.addAttribute("institucionesSalud", institucionSaludService.readAll());
+        model.addAttribute("institucionesPrevision", institucionPrevicionService.readAll());
         return "listarTrabajadores";
+    }
+
+    @GetMapping("/obtenerTrabajador")
+    @ResponseBody
+    public Optional<Trabajador> readById(int id) {
+        Trabajador trabajador = trabajadorService.readById(id);
+        return Optional.ofNullable(trabajador);
+    }
+
+    @PostMapping("/editarTrabajador")
+    public String update(@ModelAttribute Trabajador trabajador, @RequestParam(value = "listaEmpleadores", required = false) List<Integer> listaEmpleadoresSeleccionados) {
+        trabajadorService.update(trabajador, listaEmpleadoresSeleccionados);
+        return "redirect:/trabajador";
     }
 
     @GetMapping("/{id}/eliminarTrabajador")

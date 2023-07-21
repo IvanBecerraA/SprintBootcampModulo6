@@ -82,4 +82,30 @@ $('document').ready(function () {
 
         $('#modalEditar').modal();
     });
+
+    $('#tabla tbody').on('click', '#btnTablaEditarTrabajador', function (event) {
+        event.preventDefault();
+
+        var href = $(this).attr('href');
+
+        $.get(href, function (trabajador, status) {
+
+            $('#empleador option').prop('selected', false);
+            trabajador.listaEmpleadores.forEach(empleador => {
+                console.log(empleador.idEmpleador);
+                $('#empleador'+empleador.idEmpleador).prop('selected', true);
+            });
+            $('#idTrabajador').val(trabajador.idTrabajador);
+            $('#run').val(trabajador.run);
+            $('#run2').val(trabajador.run);
+            $('#nombre').val(trabajador.nombre);
+            $('#apellido1').val(trabajador.apellido1);
+            $('#apellido2').val(trabajador.apellido2);
+            $('#email').val(trabajador.email);
+            $('#telefono').val(trabajador.telefono);
+            $('#salud'+trabajador.institucionSalud.idInstSalud).prop('selected', true);
+            $('#prevision'+trabajador.institucionPrevision.idInstPrevision).prop('selected', true);
+        });
+        $('#modalEditar').modal();
+    });
 });
