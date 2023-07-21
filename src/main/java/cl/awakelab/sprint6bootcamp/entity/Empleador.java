@@ -1,5 +1,6 @@
 package cl.awakelab.sprint6bootcamp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,8 +35,8 @@ public class Empleador {
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "listaEmpleadores")
     private List<Trabajador> listaTrabajadores;
-
 
 }

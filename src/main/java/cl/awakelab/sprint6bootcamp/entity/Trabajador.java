@@ -38,7 +38,6 @@ public class Trabajador {
     @Column
     private long telefono;
 
-    @JsonIgnore
     @ManyToMany
     @JoinTable(name = "empl_trab",
             joinColumns = @JoinColumn(name = "id_Trabajador", nullable = false),
