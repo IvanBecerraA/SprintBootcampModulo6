@@ -70,7 +70,7 @@ public class TrabajadorImpl implements ITrabajadorService {
     }
 
     @Override
-    public List<Trabajador> readAll(HttpSession session) {
+    public List<Trabajador> readByUser(HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         List<Trabajador> trabajadores = trabajadorRepository.findAll();
         List<Empleador> empleadores = empleadorRepository.findAll();

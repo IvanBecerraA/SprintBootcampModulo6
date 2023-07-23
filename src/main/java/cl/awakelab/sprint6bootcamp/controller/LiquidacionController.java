@@ -1,42 +1,37 @@
 package cl.awakelab.sprint6bootcamp.controller;
 
-import cl.awakelab.sprint6bootcamp.entity.Liquidacion;
-import cl.awakelab.sprint6bootcamp.service.ILiquidacionService;
+import cl.awakelab.sprint6bootcamp.entity.Usuario;
+import cl.awakelab.sprint6bootcamp.service.*;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-@RestController
+@Controller
 @RequestMapping("/liquidacion")
 public class LiquidacionController {
 
     @Autowired
     ILiquidacionService liquidacionService;
 
-    @PostMapping
-    public Liquidacion create(@RequestBody Liquidacion liquidacion) {
-        return liquidacionService.create(liquidacion);
+    @Autowired
+    ITrabajadorService trabajadorService;
+
+    @Autowired
+    IInstitucionSaludService institucionSaludService;
+
+    @Autowired
+    IInstitucionPrevicionService institucionPrevicionService;
+
+    @GetMapping()
+    public String realAll(Model model, HttpSession session) {
+        model.addAttribute("trabajadores", trabajadorService.readByUser(session));
+        model.addAttribute("institucionesSalud", institucionSaludService.readAll());
+        model.addAttribute("institucionesPrevision", institucionPrevicionService.readAll());
+        model.addAttribute("liquidaciones", liquidacionService.readByUser(session));
+        return "listarLiquidaciones";
     }
 
-    @GetMapping("/{id}")
-    public Liquidacion readById(@PathVariable int id) {
-        return liquidacionService.readById(id);
-    }
-
-    @GetMapping
-    public List<Liquidacion> readAll() {
-        return liquidacionService.readAll();
-    }
-
-    @PutMapping
-    public Liquidacion update(@RequestBody Liquidacion liquidacion) {
-        return liquidacionService.update(liquidacion);
-    }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable int id) {
-        liquidacionService.delete(id);
-    }
 
 }

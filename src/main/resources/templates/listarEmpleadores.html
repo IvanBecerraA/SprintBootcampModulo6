@@ -79,13 +79,10 @@
                         <div class="row d-flex justify-content-center justify-content-center">
                             <div class="col-lg-6 col-sm-12 rounded shadow p-3">
                                 <form th:action="@{/empleador/editarEmpleador}" method="POST">
+                                    <input type="hidden" id="idEmpleador" name="idEmpleador">
+                                    <input type="hidden" id="idUsuario" name="idUsuario">
                                     <div class="mb-3">
-                                        <label hidden for="idEmpleador">ID</label>
-                                        <input type="hidden" id="idEmpleador" name="idEmpleador">
-                                        <input type="hidden" id="idUsuario" name="idUsuario">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="run">RUN</label>
+                                        <label for="run2">RUN</label>
                                         <input type="hidden" id="run" name="run">
                                         <input disabled class="form-control" type="number" id="run2" name="run2" required>
                                     </div>

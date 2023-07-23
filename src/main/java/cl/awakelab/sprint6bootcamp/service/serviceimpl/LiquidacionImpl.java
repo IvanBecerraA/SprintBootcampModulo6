@@ -1,11 +1,18 @@
 package cl.awakelab.sprint6bootcamp.service.serviceimpl;
 
+import cl.awakelab.sprint6bootcamp.entity.Empleador;
 import cl.awakelab.sprint6bootcamp.entity.Liquidacion;
+import cl.awakelab.sprint6bootcamp.entity.Trabajador;
+import cl.awakelab.sprint6bootcamp.entity.Usuario;
+import cl.awakelab.sprint6bootcamp.repository.IEmpleadorRepository;
 import cl.awakelab.sprint6bootcamp.repository.ILiquidacionRepository;
+import cl.awakelab.sprint6bootcamp.repository.ITrabajadorRepository;
 import cl.awakelab.sprint6bootcamp.service.ILiquidacionService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -14,6 +21,12 @@ public class LiquidacionImpl implements ILiquidacionService {
 
     @Autowired
     ILiquidacionRepository liquidacionRepository;
+
+    @Autowired
+    IEmpleadorRepository empleadorRepository;
+
+    @Autowired
+    ITrabajadorRepository trabajadorRepository;
 
     @Override
     public Liquidacion create(Liquidacion liquidacion) {
@@ -28,6 +41,52 @@ public class LiquidacionImpl implements ILiquidacionService {
     @Override
     public List<Liquidacion> readAll() {
         return liquidacionRepository.findAll();
+    }
+
+    @Override
+    public List<Liquidacion> readByUser(HttpSession session) {
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        List<Liquidacion> liquidaciones = liquidacionRepository.findAll();
+        List<Empleador> empleadores = empleadorRepository.findAll();
+        List<Trabajador> trabajadores = new ArrayList<>();
+
+
+        if (usuario.getPerfil().getIdPerfil() == 1) {
+            return liquidaciones;
+        } else if (usuario.getPerfil().getIdPerfil() == 2) {
+            List<Liquidacion> liquidacionesEmpleador = new ArrayList<>();
+            for (Empleador empleador : empleadores) {
+                if (empleador.getUsuario().getIdUsuario() == usuario.getIdUsuario()) {
+                    trabajadores = empleador.getListaTrabajadores();
+                    for (Trabajador trabajador : trabajadores) {
+                        List<Liquidacion> liquidacionesAux = trabajador.getListaLiquidaciones();
+                        for (Liquidacion liquidacion : liquidacionesAux) {
+                            if (!liquidacionesEmpleador.contains(liquidacion)) {
+                                liquidacionesEmpleador.add(liquidacion);
+                            }
+                        }
+                    }
+                }
+            }
+            return liquidacionesEmpleador;
+        } else if (usuario.getPerfil().getIdPerfil() == 3) {
+            List<Liquidacion> liquidacionesEmpleador = new ArrayList<>();
+            for (Empleador empleador : empleadores) {
+                if (empleador.getUsuario().getIdUsuario() == usuario.getIdUsuario()) {
+                    trabajadores = empleador.getListaTrabajadores();
+                    for (Trabajador trabajador : trabajadores) {
+                        List<Liquidacion> liquidacionesAux = trabajador.getListaLiquidaciones();
+                        for (Liquidacion liquidacion : liquidacionesAux) {
+                            liquidacionesEmpleador.add(liquidacion);
+                        }
+                    }
+                }
+            }
+            return liquidacionesEmpleador;
+        } else {
+            return null;
+        }
+
     }
 
     @Override

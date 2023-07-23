@@ -89,10 +89,9 @@ $('document').ready(function () {
         var href = $(this).attr('href');
 
         $.get(href, function (trabajador, status) {
-
+            console.log(trabajador);
             $('#empleador option').prop('selected', false);
             trabajador.listaEmpleadores.forEach(empleador => {
-                console.log(empleador.idEmpleador);
                 $('#empleador'+empleador.idEmpleador).prop('selected', true);
             });
             $('#idTrabajador').val(trabajador.idTrabajador);

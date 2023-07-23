@@ -56,7 +56,7 @@ public class TrabajadorController {
     public String readAll(Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         model.addAttribute("empleadores", empleadorService.readByUser(usuario));
-        model.addAttribute("trabajadores", trabajadorService.readAll(session));
+        model.addAttribute("trabajadores", trabajadorService.readByUser(session));
         model.addAttribute("institucionesSalud", institucionSaludService.readAll());
         model.addAttribute("institucionesPrevision", institucionPrevicionService.readAll());
         return "listarTrabajadores";
