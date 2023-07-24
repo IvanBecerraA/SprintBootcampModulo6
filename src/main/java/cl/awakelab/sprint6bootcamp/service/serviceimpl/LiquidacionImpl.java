@@ -7,6 +7,8 @@ import cl.awakelab.sprint6bootcamp.entity.Usuario;
 import cl.awakelab.sprint6bootcamp.repository.IEmpleadorRepository;
 import cl.awakelab.sprint6bootcamp.repository.ILiquidacionRepository;
 import cl.awakelab.sprint6bootcamp.repository.ITrabajadorRepository;
+import cl.awakelab.sprint6bootcamp.service.IInstitucionPrevicionService;
+import cl.awakelab.sprint6bootcamp.service.IInstitucionSaludService;
 import cl.awakelab.sprint6bootcamp.service.ILiquidacionService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +30,29 @@ public class LiquidacionImpl implements ILiquidacionService {
     @Autowired
     ITrabajadorRepository trabajadorRepository;
 
+    @Autowired
+    IInstitucionPrevicionService institucionPrevicionService;
+
+    @Autowired
+    IInstitucionSaludService institucionSaludService;
+
     @Override
     public Liquidacion create(Liquidacion liquidacion) {
+
+        liquidacion.setTotalHaberes(liquidacion.getSueldoImponible());
+        liquidacion.setInstitucionSalud(
+                liquidacion.getTrabajador().getInstitucionSalud());
+        liquidacion.setMontoInstSalud(
+                ( (int) (liquidacion.getSueldoImponible()
+                        * liquidacion.getTrabajador().getInstitucionSalud().getPorcDcto()) )/100);
+        liquidacion.setInstitucionPrevision(
+                liquidacion.getTrabajador().getInstitucionPrevision());
+        liquidacion.setMontoInstPrevision(
+                ( (int) (liquidacion.getSueldoImponible()
+                        * liquidacion.getTrabajador().getInstitucionPrevision().getPorcDcto()) )/100);
+        liquidacion.setTotalDescuento(liquidacion.getMontoInstSalud() + liquidacion.getMontoInstPrevision());
+        liquidacion.setSueldoLiquido(liquidacion.getTotalHaberes() - liquidacion.getTotalDescuento() - liquidacion.getAnticipo());
+
         return liquidacionRepository.save(liquidacion);
     }
 

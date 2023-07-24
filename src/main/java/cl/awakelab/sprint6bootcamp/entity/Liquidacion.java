@@ -24,9 +24,9 @@ public class Liquidacion {
     @Column(nullable = false)
     private LocalDate periodo;
     @Column(nullable = false)
-    private int SueldoImponible;
+    private int sueldoImponible;
     @Column(nullable = false)
-    private int SueldoLiquido;
+    private int sueldoLiquido;
 
 
     @ManyToOne(optional = false, fetch = FetchType.EAGER)

@@ -16,7 +16,7 @@
       <h2 class="h2"><strong>Liquidaciones</strong></h2>
     </div>
     <div class="container my-4">
-      <a class="btn btn-success" type="button" th:href="@{/liquidacion/crearLiquidacion}"><i class="fa-regular fa-square-plus fa-bounce fa-lg me-1"></i> Agregar Trabajador</a>
+      <a class="btn btn-success" type="button" th:href="@{/liquidacion/crearLiquidacion}"><i class="fa-regular fa-square-plus fa-bounce fa-lg me-1"></i> Agregar Liquidación</a>
     </div>
     <div class="container" style="min-height: 500px;">
       <div class="col-12 table-responsive">
@@ -36,8 +36,8 @@
             <td th:text="${liquidacion.idLiquidacion}"></td>
             <td th:text="${liquidacion.trabajador.run}"></td>
             <td th:text="${liquidacion.trabajador.nombre}"></td>
-            <td th:text="${liquidacion.sueldoImponible}"></td>
-            <td th:text="${liquidacion.sueldoLiquido}"></td>
+            <td th:text="${#numbers.formatDecimal(liquidacion.sueldoImponible, 0, 'POINT', 0, 'POINT')}"></td>
+            <td th:text="${#numbers.formatDecimal(liquidacion.sueldoLiquido, 0, 'POINT', 0, 'POINT')}"></td>
             <td>
               
             </td>
