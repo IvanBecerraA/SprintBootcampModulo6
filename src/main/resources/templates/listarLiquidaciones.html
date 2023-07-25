@@ -39,7 +39,8 @@
             <td th:text="${#numbers.formatDecimal(liquidacion.sueldoImponible, 0, 'POINT', 0, 'POINT')}"></td>
             <td th:text="${#numbers.formatDecimal(liquidacion.sueldoLiquido, 0, 'POINT', 0, 'POINT')}"></td>
             <td>
-              
+              <a class="btn btn-primary" type="button" th:href="@{/liquidacion/{id}/editarLiquidacion(id=${liquidacion.idLiquidacion})}"><i class="fa-regular fa-pen-to-square fa-beat"></i></a>
+              <button class="btn btn-danger" type="button" th:href="@{/liquidacion/{id}/eliminarLiquidacion(id=${liquidacion.idLiquidacion})}" data-bs-toggle="modal" id="btnTablaEliminar" data-bs-target="#modalEliminar"><i class="fa-solid fa-trash fa-fade"></i></button>
             </td>
           </tr>
           </tbody>
@@ -48,6 +49,23 @@
     </div>
   </div>
 
+  <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="etiquetaModal1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="etiquetaModal1">Confirmar Eliminación</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ¿Está seguro de eliminar este dato?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+          <a href="" type="submit" class="btn btn-danger" id="confirmarEliminar">Confirmar</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 </main>

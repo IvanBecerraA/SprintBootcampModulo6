@@ -20,7 +20,10 @@
         <div class="mb-3">
           <label for="trabajador">Trabajador</label>
           <select class="form-select" id="trabajador" name="trabajador" aria-label="Floating label select example" required>
-            <option th:each="trabajador: ${trabajadores}" th:value="${trabajador.idTrabajador}" th:text="'RUN: ' + ${trabajador.run} + ', nombre: '+ ${trabajador.nombre}"></option>
+            <option value="" selected disabled hidden>Seleccione un trabajador</option>
+            <option th:each="trabajador: ${trabajadores}" th:value="${trabajador.idTrabajador}" th:text="'RUN: ' + ${trabajador.run} + ', nombre: '+ ${trabajador.nombre}"
+                    th:data-afp="${trabajador.institucionPrevision.descripcion}" th:data-porcAfp="${trabajador.institucionPrevision.porcDcto}"
+                    th:data-salud="${trabajador.institucionSalud.descripcion}" th:data-porcsalud="${trabajador.institucionSalud.porcDcto}"></option>
           </select>
         </div>
         <div class="mb-3">
@@ -32,10 +35,22 @@
           <input class="form-control" type="number" id="sueldoImponible" name="sueldoImponible" placeholder="Ingrese el sueldo imponible" required>
         </div>
         <div class="mb-3">
+          <label for="haberes" hidden>Total Haberes</label>
+          <input class="form-control" type="number" id="haberes" disabled hidden required>
+        </div>
+        <div class="mb-3">
           <label for="anticipo">Anticipo</label>
           <input class="form-control" type="number" id="anticipo" name="anticipo" placeholder="Ingrese el anticipo" th:value="0" min="0" required>
         </div>
-        <div class="text-center d-grid gap-2">
+        <div class="mb-3">
+          <label for="afp">AFP</label>
+          <input class="form-control" type="text" disabled id="afp">
+        </div>
+        <div class="mn-3">
+          <label for="salud">Institución de salud</label>
+          <input class="form-control" type="text" disabled id="salud">
+        </div>
+        <div class="text-center d-grid gap-2 pt-4">
           <button class="btn btn-success" type="submit">Registrar</button>
         </div>
       </form>
@@ -43,6 +58,18 @@
   </div>
 </main>
 <footer th:insert="~{../static/html/footer.html}"></footer>
+<script>
+  document.getElementById("trabajador").addEventListener("change", function () {
+    console.log(this.options[this.selectedIndex].getAttribute("data-afp"));
+
+    document.getElementById("afp").value = this.options[this.selectedIndex].getAttribute("data-afp");
+    document.getElementById("salud").value = this.options[this.selectedIndex].getAttribute("data-salud");
+  });
+
+  document.getElementById("sueldoImponible").addEventListener("keyup", function () {
+    document.getElementById("haberes").value = document.getElementById("sueldoImponible").value;
+  })
+</script>
 
 </body>
 </html>

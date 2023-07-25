@@ -114,6 +114,21 @@ public class LiquidacionImpl implements ILiquidacionService {
 
     @Override
     public Liquidacion update(Liquidacion liquidacion) {
+
+        liquidacion.setTotalHaberes(liquidacion.getSueldoImponible());
+        liquidacion.setInstitucionSalud(
+                liquidacion.getTrabajador().getInstitucionSalud());
+        liquidacion.setMontoInstSalud(
+                ( (int) (liquidacion.getSueldoImponible()
+                        * liquidacion.getTrabajador().getInstitucionSalud().getPorcDcto()) )/100);
+        liquidacion.setInstitucionPrevision(
+                liquidacion.getTrabajador().getInstitucionPrevision());
+        liquidacion.setMontoInstPrevision(
+                ( (int) (liquidacion.getSueldoImponible()
+                        * liquidacion.getTrabajador().getInstitucionPrevision().getPorcDcto()) )/100);
+        liquidacion.setTotalDescuento(liquidacion.getMontoInstSalud() + liquidacion.getMontoInstPrevision());
+        liquidacion.setSueldoLiquido(liquidacion.getTotalHaberes() - liquidacion.getTotalDescuento() - liquidacion.getAnticipo());
+
         return liquidacionRepository.save(liquidacion);
     }
 
