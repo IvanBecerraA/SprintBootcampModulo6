@@ -4,60 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liquidaciones</title>
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@100;300;400;600;800;900&display=swap" rel="stylesheet">
 </head>
-<body style="font-family: G-Roboto-n4, Arial !important">
-    <header th:insert="~{../static/html/header.html}"></header>
+<body>
+    <header style="background: #00c7cb;" th:insert="~{../static/html/header.html}"></header>
     <main>
-        <div class="py-5" style="background-color: rgb(233, 236, 239);">
+        <div class="py-5 container-index">
             <div class="container">
-                <h1 class="h1">Liquidaciones de Sueldo</h1>
-                <h1 class="h1">Para Trabajadores de Casa</h1>
-                <h1 class="h1">EL FRONTEND ANDA FLOJO</h1>
+                <div>
+                    <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg244549" viewBox="0 0 1024 768" height="300px" version="1.1">
+                        <metadata id="metadata244555">
+                            <rdf:rdf>
+                                <cc:work rdf:about="">
+                                    <dc:format>image/svg+xml</dc:format>
+                                    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type>
+                                </cc:work>
+                            </rdf:rdf>
+                        </metadata>
+                        <defs id="defs244553"></defs>
+                        <linearGradient spreadMethod="pad" y2="30%" x2="-10%" y1="120%" x1="30%" id="3d_gradient2-logo-b1b0f82e-4edb-49b3-92dc-8d55c1f530c9">
+                            <stop id="stop244530" stop-opacity="1" stop-color="#ffffff" offset="0%"></stop>
+                            <stop id="stop244532" stop-opacity="1" stop-color="#000000" offset="100%"></stop>
+                        </linearGradient>
+                        <linearGradient gradientTransform="rotate(-30)" spreadMethod="pad" y2="30%" x2="-10%" y1="120%" x1="30%" id="3d_gradient3-logo-b1b0f82e-4edb-49b3-92dc-8d55c1f530c9">
+                            <stop id="stop244535" stop-opacity="1" stop-color="#ffffff" offset="0%"></stop>
+                            <stop id="stop244537" stop-opacity="1" stop-color="#cccccc" offset="50%"></stop>
+                            <stop id="stop244539" stop-opacity="1" stop-color="#000000" offset="100%"></stop>
+                        </linearGradient>
+                        <g id="logo-group">
+                            <image xlink:href="" id="container" x="272" y="144" width="480" height="480" style="display: none;" transform="translate(0 0)"></image>
+                            <g id="logo-center" transform="translate(0 0)">
+                                <image xlink:href="" id="icon_container" x="0" y="0" style="display: none;"></image>
+                                <g id="slogan" style="font-style:normal;font-weight:100;font-size:32px;line-height:1;font-family:'Exo 2';font-variant-ligatures:none;text-align:center;text-anchor:middle" transform="translate(0 0)"></g>
+                                <g id="title" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" transform="translate(0 0)">
+                                    <path id="path244558" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 67.41125,-4.248 v -44.784 q 0,-1.512 7.272,-1.512 7.344,0 7.344,1.512 v 35.28 h 11.088 q 1.296,0 1.8,3.384 0.216,1.656 0.216,3.384 0,1.728 -0.216,3.528 Q 94.33925,0 93.04325,0 h -22.176 q -1.584,0 -2.52,-1.296 -0.936,-1.296 -0.936,-2.952 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#00c7cb" stroke="#00c7cb" transform="translate(0 298.5944752) translate(28.399421549999943 6.530720000000002) scale(1.87) translate(-67.41125 50.544)"></path>
+                                    <path id="path244560" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 104.24263,-12.384 v -25.632 h -5.112005 q -1.224,0 -1.728,-3.096 -0.216,-1.512 -0.216,-3.096 0,-1.584 0.216,-3.096 0.504,-3.096 1.728,-3.096 h 24.192005 q 1.224,0 1.65599,3.096 0.28801,1.512 0.28801,3.096 0,1.584 -0.28801,3.096 -0.43199,3.096 -1.65599,3.096 h -4.824 v 25.632 h 5.03999 q 1.22401,0 1.72801,3.096 0.288,1.512 0.288,3.096 0,1.584 -0.288,3.096 Q 124.76263,0 123.53862,0 H 99.274625 q -1.224,0 -1.656,-3.096 -0.288,-1.512 -0.288,-3.096 0,-1.584 0.288,-3.096 0.432,-3.096 1.656,-3.096 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#00c7cb" stroke="#00c7cb" transform="translate(0 298.5944752) translate(84.07937279999996 6.799999999999997) scale(1.87) translate(-97.186625 50.4)"></path>
+                                    <path id="path244562" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 128.98812,-25.128 q 0,-12.816 6.408,-19.368 6.48,-6.552 16.632,-6.552 10.224,0 16.488,6.48 6.264,6.408 6.264,19.44 0,10.008 -3.888,16.128 -3.888,6.12 -10.65599,8.424 l 7.632,5.256 q 0.43199,0.288 0.43199,1.008 0,0.792 -1.656,2.88 -1.584,2.088 -3.888,3.168 -2.232,1.152 -3.384,1.152 -1.152,0 -1.872,-0.792 l -10.512,-11.664 q -8.064,-1.512 -13.032,-8.064 -4.968,-6.624 -4.968,-17.496 z m 22.896,-12.096 q -3.456,0 -5.832,3.168 -2.30399,3.168 -2.30399,8.928 0,5.688 2.23199,8.784 2.23201,3.024 5.832,3.024 3.672,0 5.904,-3.096 2.304,-3.096 2.304,-8.856 0,-5.76 -2.376,-8.856 -2.304,-3.096 -5.76,-3.096 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#00c7cb" stroke="#00c7cb" transform="translate(0 298.5944752) translate(143.54816844999996 5.588239999999999) scale(1.87) translate(-128.98812 51.048)"></path>
+                                    <path id="path244564" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 204.73775,-48.96 q 0,-1.44 7.776,-1.44 7.848,0 7.848,1.44 v 33.048 q 0,7.344 -5.256,12.024 -5.256,4.608 -14.544,4.608 -9.216,0 -15.048,-4.752 -5.76,-4.824 -5.76,-12.96 v -31.896 q 0,-1.44 7.776,-1.44 7.848,0 7.848,1.44 v 32.472 q 0,1.44 1.512,2.304 1.584,0.864 3.312,0.864 1.728,0 3.096,-0.792 1.44,-0.792 1.44,-2.376 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#00c7cb" stroke="#00c7cb" transform="translate(0 298.5944752) translate(238.47989654999995 6.799999999999997) scale(1.87) translate(-179.75375 50.4)"></path>
+                                    <path id="path244566" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 231.227,-12.384 v -25.632 h -5.112 q -1.224,0 -1.728,-3.096 -0.216,-1.512 -0.216,-3.096 0,-1.584 0.216,-3.096 0.504,-3.096 1.728,-3.096 h 24.192 q 1.224,0 1.656,3.096 0.288,1.512 0.288,3.096 0,1.584 -0.288,3.096 -0.432,3.096 -1.656,3.096 h -4.824 v 25.632 h 5.04 q 1.224,0 1.728,3.096 0.288,1.512 0.288,3.096 0,1.584 -0.288,3.096 Q 251.747,0 250.523,0 h -24.264 q -1.224,0 -1.656,-3.096 -0.288,-1.512 -0.288,-3.096 0,-1.584 0.288,-3.096 0.432,-3.096 1.656,-3.096 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#00c7cb" stroke="#00c7cb" transform="translate(0 298.5944752) translate(321.5401540499999 6.799999999999997) scale(1.87) translate(-224.171 50.4)"></path>
+                                    <path id="path244568" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 257.4125,-3.312 v -43.2 q 0,-1.8 0.864,-2.808 0.936,-1.08 2.376,-1.08 h 12.024 q 11.448,0 17.352,5.76 5.976,5.76 5.976,18.144 0,26.496 -22.608,26.496 h -12.312 q -3.672,0 -3.672,-3.312 z m 13.824,-33.408 v 21.528 q 0,1.512 0.216,1.944 0.216,0.36 1.296,0.36 3.96,0 5.976,-2.952 2.088,-2.952 2.088,-9.792 0,-6.912 -2.16,-9 -2.088,-2.088 -6.696,-2.088 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#00c7cb" stroke="#00c7cb" transform="translate(0 298.5944752) translate(383.70175904999996 6.799999999999997) scale(1.87) translate(-257.4125 50.4)"></path>
+                                    <path id="path244570" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 335.54937,0.144 q -6.264,0 -6.76799,-2.016 l -2.37601,-9.288 h -11.44799 l -2.08801,8.928 Q 312.43737,0 305.95738,0 q -3.45601,0 -5.11201,-0.36 -1.656,-0.432 -1.656,-0.648 l 12.744,-48.744 q 0,-0.576 9.864,-0.576 9.86401,0 9.86401,0.576 l 12.45599,48.816 q 0,0.504 -3.31199,0.792 -3.312,0.288 -5.25601,0.288 z m -18.79199,-20.448 h 7.55999 l -3.23999,-14.904 h -0.43201 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#00c7cb" stroke="#00c7cb" transform="translate(0 298.5944752) translate(461.82450594999995 6.9346399999999875) scale(1.87) translate(-299.18937 50.328)"></path>
+                                    <path id="path244572" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 369.41075,-51.048 q 5.256,0 9.216,1.512 4.032,1.44 4.032,3.96 0,2.52 -1.944,6.264 -1.872,3.672 -3.168,3.672 -0.36,0 -0.864,-0.36 -0.432,-0.432 -2.16,-0.864 -1.656,-0.504 -2.88,-0.504 -4.176,0 -6.768,2.952 -2.52,2.952 -2.52,9.072 0,6.048 2.592,9 2.664,2.952 6.696,2.952 1.656,0 3.672,-0.432 2.088,-0.504 2.952,-1.368 0.144,-0.144 0.576,-0.144 0.432,0 1.584,1.656 1.224,1.584 2.232,4.248 1.008,2.592 1.008,4.032 0,2.808 -4.32,4.464 -4.32,1.656 -10.224,1.656 -9.504,0 -15.624,-6.696 -6.12,-6.696 -6.12,-18.864 0,-12.24 6.264,-19.224 6.336,-6.984 15.768,-6.984 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#00c7cb" stroke="#00c7cb" transform="translate(0 298.5944752) translate(551.93864655 5.588239999999999) scale(1.87) translate(-347.37875 51.048)"></path>
+                                    <path id="path244574" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 393.93012,-12.384 v -25.632 h -5.112 q -1.22399,0 -1.728,-3.096 -0.216,-1.512 -0.216,-3.096 0,-1.584 0.216,-3.096 0.50401,-3.096 1.728,-3.096 h 24.19201 q 1.22399,0 1.656,3.096 0.28799,1.512 0.28799,3.096 0,1.584 -0.28799,3.096 -0.43201,3.096 -1.656,3.096 h -4.82401 v 25.632 h 5.04001 q 1.224,0 1.72799,3.096 0.288,1.512 0.288,3.096 0,1.584 -0.288,3.096 Q 414.45013,0 413.22613,0 h -24.264 q -1.224,0 -1.65601,-3.096 -0.288,-1.512 -0.288,-3.096 0,-1.584 0.288,-3.096 0.43201,-3.096 1.65601,-3.096 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#00c7cb" stroke="#00c7cb" transform="translate(0 298.5944752) translate(625.79498845 6.799999999999997) scale(1.87) translate(-386.87412 50.4)"></path>
+                                    <path id="path244576" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 441.49962,0.72 q -10.08,0 -16.488,-6.624 -6.33599,-6.624 -6.33599,-19.296 0,-12.744 6.40799,-19.296 6.48,-6.552 16.632,-6.552 10.224,0 16.488,6.48 6.264,6.408 6.264,19.512 0,13.032 -6.408,19.44 -6.408,6.336 -16.56,6.336 z m 0.072,-37.944 q -3.45599,0 -5.832,3.168 -2.30399,3.168 -2.30399,8.928 0,5.688 2.23199,8.784 2.23201,3.024 5.832,3.024 3.672,0 5.904,-3.096 2.304,-3.096 2.304,-8.856 0,-5.76 -2.376,-8.856 -2.304,-3.096 -5.76,-3.096 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#00c7cb" stroke="#00c7cb" transform="translate(0 298.5944752) translate(685.26381215 5.588239999999999) scale(1.87) translate(-418.67563 51.048)"></path>
+                                    <path id="path244578" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 509.63412,-1.584 q 0,1.512 -6.768,1.512 -6.768,0 -7.34399,-1.08 l -12.024,-22.464 v 22.392 q 0,1.296 -6.69601,1.296 -6.62399,0 -6.62399,-1.296 v -48.168 q 0,-1.08 5.68799,-1.08 2.232,0 5.184,0.432 3.024,0.36 3.672,1.44 l 11.52,22.176 v -22.608 q 0,-1.368 6.69601,-1.368 6.69599,0 6.69599,1.368 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#00c7cb" stroke="#00c7cb" transform="translate(0 298.5944752) translate(781.5734871500001 6.665359999999993) scale(1.87) translate(-470.17813 50.472)"></path>
+                                    <path id="path244580" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 540.26562,-30.384 q 1.36801,0 1.36801,5.04 0,1.512 -0.36,3.6 -0.288,2.016 -1.15201,2.016 h -9.144 v 7.2 h 13.24801 q 1.22399,0 1.65599,3.168 0.216,1.368 0.216,2.952 0,1.512 -0.432,3.96 Q 545.23362,0 544.22563,0 h -24.624 q -2.736,0 -2.736,-2.232 v -46.296 q 0,-1.872 1.65599,-1.872 h 25.77601 q 1.51199,0 1.51199,6.408 0,6.336 -1.51199,6.336 h -13.32001 v 7.272 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#00c7cb" stroke="#00c7cb" transform="translate(0 298.5944752) translate(868.8791121500001 6.799999999999997) scale(1.87) translate(-516.86563 50.4)"></path>
+                                    <path id="path244582" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 554.17512,-17.568 q 1.36801,1.08 4.68001,2.952 3.38399,1.872 6.40799,1.872 3.096,0 3.096,-2.376 0,-1.08 -0.86399,-1.872 -0.86401,-0.864 -3.168,-1.944 -2.304,-1.08 -3.45601,-1.656 -1.152,-0.648 -3.096,-2.016 -1.87199,-1.44 -2.88,-2.952 -2.88,-4.104 -2.88,-10.44 0,-6.336 4.68,-10.656 4.75201,-4.392 12.384,-4.392 5.184,0 9.576,1.152 4.39201,1.08 4.53601,2.88 0,0.216 0,0.432 0,2.52 -1.58401,6.408 -1.58399,3.816 -2.23199,4.248 -4.60801,-2.376 -8.28,-2.376 -3.6,0 -3.6,2.592 0,1.584 2.664,2.808 0.576,0.288 1.65599,0.792 1.08,0.504 2.448,1.224 1.44,0.648 3.02401,1.728 1.65599,1.008 3.52799,2.736 3.816,3.6 3.816,9.504 0,7.704 -4.248,12.6 -4.24799,4.896 -13.10399,5.04 -4.32001,0 -7.84801,-0.72 -3.45599,-0.72 -6.048,-2.808 -2.592,-2.088 -2.592,-5.04 0,-2.952 1.08,-5.832 1.08001,-2.952 2.304,-3.888 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#00c7cb" stroke="#00c7cb" transform="translate(0 298.5944752) translate(932.3197784500001 5.588239999999999) scale(1.87) translate(-550.79112 51.048)"></path>
+                                    <path id="path244584" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 637.89313,0.144 q -6.264,0 -6.768,-2.016 l -2.376,-9.288 h -11.44801 l -2.088,8.928 q -0.432,2.232 -6.912,2.232 -3.45599,0 -5.112,-0.36 -1.65599,-0.432 -1.65599,-0.648 l 12.74399,-48.744 q 0,-0.576 9.864,-0.576 9.86401,0 9.86401,0.576 l 12.456,48.816 q 0,0.504 -3.312,0.792 -3.312,0.288 -5.256,0.288 z m -18.792,-20.448 h 7.55999 l -3.24,-14.904 h -0.43199 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#ffffff" stroke="#ffffff" transform="translate(0 298.5944752) translate(179.19832529999996 70.30160959999999) scale(1.87) translate(-601.53313 50.328)"></path>
+                                    <path id="path244586" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 646.54325,-49.68 q -0.216,-0.792 7.272,-0.792 8.28,0 8.496,1.368 l 3.528,30.312 7.632,-30.672 q 0.36,-1.08 5.616,-1.08 5.256,0 5.616,1.008 l 7.488,30.888 4.176,-30.6 q 0.144,-0.792 3.312,-1.08 3.168,-0.288 5.112,-0.288 7.56,0 7.344,1.008 l -8.712,47.736 q -0.288,1.08 -4.104,1.584 -3.816,0.504 -6.192,0.504 -8.928,0 -9.36,-2.016 l -4.896,-19.8 -5.328,19.728 q -0.288,1.296 -5.04,1.872 -2.448,0.216 -4.896,0.216 L 658.99925,0 q -4.752,-0.504 -5.04,-1.8 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#ffffff" stroke="#ffffff" transform="translate(0 298.5944752) translate(263.3559174999999 69.7630496) scale(1.87) translate(-646.53719 50.616)"></path>
+                                    <path id="path244588" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 748.565,0.144 q -6.264,0 -6.768,-2.016 l -2.376,-9.288 h -11.448 l -2.088,8.928 Q 725.453,0 718.973,0 q -3.456,0 -5.112,-0.36 -1.656,-0.432 -1.656,-0.648 l 12.744,-48.744 q 0,-0.576 9.864,-0.576 9.864,0 9.864,0.576 l 12.456,48.816 q 0,0.504 -3.312,0.792 -3.312,0.288 -5.256,0.288 z m -18.792,-20.448 h 7.56 l -3.24,-14.904 h -0.432 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#ffffff" stroke="#ffffff" transform="translate(0 298.5944752) translate(386.1547221999999 70.30160959999999) scale(1.87) translate(-712.205 50.328)"></path>
+                                    <path id="path244590" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 776.23437,-1.008 q 0,1.08 -6.768,1.08 l -4.03199,-0.216 q -3.6,-0.288 -3.6,-1.008 v -48.312 q 0,-1.224 7.19999,-1.224 7.2,0 7.2,1.224 v 18.432 l 8.784,-18.432 q 0.504,-1.008 5.76,-1.008 9.576,0 10.08001,1.656 0,0.144 -0.072,0.288 l -12.52801,22.608 14.544,20.088 q 0,0.144 -1.36799,1.224 -3.312,2.88 -7.77601,4.536 -1.36799,0.504 -2.736,0.504 l -1.72799,-0.144 q -2.30401,-0.576 -3.6,-2.952 l -8.208,-15.696 h -1.15201 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#ffffff" stroke="#ffffff" transform="translate(0 298.5944752) translate(478.9616627999999 69.6284096) scale(1.87) translate(-761.83438 50.688)"></path>
+                                    <path id="path244592" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 829.8125,-30.384 q 1.368,0 1.368,5.04 0,1.512 -0.36,3.6 -0.288,2.016 -1.152,2.016 h -9.144 v 7.2 h 13.248 q 1.224,0 1.656,3.168 0.216,1.368 0.216,2.952 0,1.512 -0.432,3.96 Q 834.7805,0 833.7725,0 h -24.624 q -2.736,0 -2.736,-2.232 v -46.296 q 0,-1.872 1.656,-1.872 h 25.776 q 1.512,0 1.512,6.408 0,6.336 -1.512,6.336 h -13.32 v 7.272 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#ffffff" stroke="#ffffff" transform="translate(0 298.5944752) translate(562.3227472 70.1669696) scale(1.87) translate(-806.4125 50.4)"></path>
+                                    <path id="path244594" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 841.13,-4.248 v -44.784 q 0,-1.512 7.272,-1.512 7.344,0 7.344,1.512 v 35.28 h 11.088 q 1.296,0 1.8,3.384 0.216,1.656 0.216,3.384 0,1.728 -0.216,3.528 Q 868.058,0 866.762,0 h -22.176 q -1.584,0 -2.52,-1.296 -0.936,-1.296 -0.936,-2.952 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#ffffff" stroke="#ffffff" transform="translate(0 298.5944752) translate(627.2444722 69.8976896) scale(1.87) translate(-841.13 50.544)"></path>
+                                    <path id="path244596" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 907.04938,0.144 q -6.264,0 -6.768,-2.016 l -2.376,-9.288 h -11.44801 l -2.088,8.928 q -0.432,2.232 -6.912,2.232 -3.45599,0 -5.112,-0.36 -1.65599,-0.432 -1.65599,-0.648 l 12.74399,-48.744 q 0,-0.576 9.864,-0.576 9.86401,0 9.86401,0.576 l 12.456,48.816 q 0,0.504 -3.312,0.792 -3.312,0.288 -5.256,0.288 z m -18.792,-20.448 h 7.55999 l -3.24,-14.904 h -0.43199 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#ffffff" stroke="#ffffff" transform="translate(0 298.5944752) translate(682.5205128 70.30160959999999) scale(1.87) translate(-870.68938 50.328)"></path>
+                                    <path id="path244598" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:'Lilita One';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 955.67075,-37.368 q 0,7.488 -6.48,11.376 3.528,1.296 5.904,4.464 2.376,3.168 2.376,9 0,5.76 -4.32,9.144 -4.248,3.384 -12.24,3.384 h -16.992 q -1.224,0 -2.016,-0.792 -0.792,-0.864 -0.792,-2.232 v -46.08 q 0,-0.792 0.216,-1.008 0.288,-0.288 1.08,-0.288 h 16.416 q 16.848,0 16.848,13.032 z m -20.736,-1.368 v 9.432 h 0.36 q 6.912,0 6.912,-4.608 0,-2.52 -1.368,-3.672 -1.296,-1.152 -4.392,-1.152 z m 0,17.928 v 9.36 h 1.296 q 3.096,0 4.536,-1.152 1.44,-1.152 1.44,-3.672 0,-2.52 -1.368,-3.528 -1.296,-1.008 -4.392,-1.008 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#ffffff" stroke="#ffffff" transform="translate(0 298.5944752) translate(776.8084747 70.1669696) scale(1.87) translate(-921.11075 50.4)"></path>
+                                </g>
+                                <image xlink:href="" id="icon" x="0" y="0" style="display: none;"></image>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
                 <hr>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, laborum nulla tempore cum doloremque neque at iste culpa libero rem architecto corporis eligendi illo quaerat totam impedit tenetur fuga maiores.</p>
-                <button class="btn btn-success btn-lg" type="submit">Iniciar Sesión</button>
-                <button class="btn btn-primary btn-lg" type="submit">Registrarse</button>
+                <p>Optimice su Situación Financiera con Nuestro Servicio Especializado</p>
+                <p class="d-none d-sm-block">En Liquidaciones de Sueldo, entendemos la importancia de mantener un equilibrio financiero adecuado mientras usted se enfoca en lo más importante: su hogar y su familia. Nuestro equipo altamente capacitado está aquí para brindarle el apoyo y la asesoría contable que necesita para asegurarse de que todas sus necesidades financieras estén cubiertas.</p>
+                <a class="btn btn-success btn-lg" th:href="@{/login}" type="submit">Iniciar Sesión</a>
+                <a class="btn btn-primary btn-lg" th:href="@{/registro}" type="submit">Registrarse</a>
             </div>
         </div>
-        <div class="py-5">
-            <div class="container">
-                <h3 class="text-center mb-5">Características</h3>
-                <div>
-                    <h4>List-based media object</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum omnis dolore, deleniti voluptatem eaque delectus enim! Aliquam vero suscipit nisi repellendus amet beatae dolorum fuga molestiae natus, in labore dicta.</p>
-                </div>
-                <div>
-                    <h4>List-based media object</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum omnis dolore, deleniti voluptatem eaque delectus enim! Aliquam vero suscipit nisi repellendus amet beatae dolorum fuga molestiae natus, in labore dicta.</p>
-                </div>
-                <div>
-                    <h4>List-based media object</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum omnis dolore, deleniti voluptatem eaque delectus enim! Aliquam vero suscipit nisi repellendus amet beatae dolorum fuga molestiae natus, in labore dicta.</p>
-                </div>
-            </div>
-        </div>
-        <div class="py-5">
-            <div class="container">
-                <h3 class="text-center mb-5">Contacto</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4711.275015107036!2d-70.56800352497791!3d-33.387392259169125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d1c69b71d979%3A0x54aa56e13bff827b!2sMicrosoft%20Chile!5e0!3m2!1ses!2scl!4v1689139896949!5m2!1ses!2scl" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="container container-caracteristicas">
+            <h2 class="text-center">Características</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="/img/img1.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Contadores</h5>
+                            <p class="card-text">El rol de contador es fundamental en nuestro sistema. Podrás agregar empleadores y asignar trabajadores a cada uno de ellos. Esta función te permitirá llevar un registro detallado de las relaciones laborales y acceder a la información relevante para la generación de liquidaciones precisas. También tendrás la capacidad de registrar las liquidaciones de los trabajadores de forma rápida y sencilla.</p>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <form action="">
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="/img/img3.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Empleadores</h5>
+                            <p class="card-text">Como empleador, tendrás acceso a las funcionalidades necesarias para administrar tu propio negocio. Podrás agregar trabajadores que formen parte de tu empresa y realizar un seguimiento de su información laboral. Además, tendrás la capacidad de generar las liquidaciones correspondientes a tus empleados, asegurando que se cumplan con todas las regulaciones y requisitos legales.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="/img/img2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Administradores</h5>
+                            <p class="card-text">Como administrador, tienes el control total de la plataforma. Podrás agregar nuevos usuarios y asignarles el rol adecuado, garantizando que cada miembro del equipo tenga el acceso necesario para realizar sus funciones. Además, tienes la posibilidad de supervisar todas las actividades y asegurarte de que el sistema funcione sin contratiempos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container container-contacto">
+            <h2 class="text-center">Contacto</h2>
+            <div class="row">
+                <div class="col-md-6" style="text-align: center">
+                    <div class="responsive-iframe-wrapper">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4711.275015107036!2d-70.56800352497791!3d-33.387392259169125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d1c69b71d979%3A0x54aa56e13bff827b!2sMicrosoft%20Chile!5e0!3m2!1ses!2scl!4v1689139896949!5m2!1ses!2scl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6 pt-3">
+                    <form action="">
+                        <div class="mb-3">
                             <label for="nombre">Nombre</label>
-                            <input class="form-control" style="margin-bottom: 10px;" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" required>
+                            <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" required>
+                        </div>
+                        <div class="mb-3">
                             <label for="email">Email</label>
-                            <input class="form-control" style="margin-bottom: 10px;" type="text" name="email" id="email" placeholder="Ingrese su email" required>
+                        <input class="form-control" type="text" name="email" id="email" placeholder="Ingrese su email" required>
+                        </div>
+                        <div class="mb-3">
                             <label for="mensaje">Mensaje</label>
-                            <textarea class="form-control" style="margin-bottom: 20px;" id="mensaje" name="mensaje" placeholder="Ingrese su mensaje" required></textarea>
+                            <textarea class="form-control" id="mensaje" name="mensaje" placeholder="Ingrese su mensaje" required></textarea>
+                        </div>
+                        <div class="d-grid gap-2 col-6 mx-auto">
                             <button class="btn btn-primary">Enviar</button>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
-                
             </div>
         </div>
     </main>

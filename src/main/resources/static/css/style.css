@@ -1,0 +1,116 @@
+* {
+    font-family: G-Roboto-n4, Arial
+}
+
+/* --------------------------- Propiedades Personalizadas ---------------------------*/
+:root {
+    --color-1: #000000;
+    --color-2: #121212;
+    --color-3: #2d2d2d;
+    --color-4: #ffffff;
+    --color-5: #00c7cb;
+}
+
+/* --------------------------- Header ---------------------------*/
+.navbar img {
+    height: 44px;
+}
+
+.navbar {
+    background-color: var(--color-3);
+}
+
+.navbar a{
+    color: var(--color-4);
+}
+
+.dropdown-menu {
+    background: var(--color-2) !important;
+}
+
+.container-header {
+    background: var(--color-3);
+}
+
+/* --------------------------- Footer ---------------------------*/
+
+.container-footer1 {
+    background: var(--color-3);
+}
+
+.container-footer2 {
+    height: 100px;
+    background: var(--color-4);
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+}
+
+.container-footer {
+    background: var(--color-3);
+    color: var(--color-4);
+}
+
+.container-footer a{
+    color: var(--color-4);
+}
+
+/* --------------------------- Index ---------------------------*/
+.container-index {
+    background-color: rgb(233, 236, 239) !important;
+    height: 80vh;
+    background: linear-gradient(to top, rgba(30, 35, 38, .7), rgba(30, 35, 38, .9)),
+        url("../img/oficina-documentos-cuentas-dinero.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    color: var(--color-4);
+    display: flex;
+    align-items: center;
+}
+
+/* --------------------------- Características ---------------------------*/
+.container-caracteristicas {
+    padding-top: 100px;
+}
+
+.container-caracteristicas h2{
+    padding-bottom: 50px;
+    font-size: 3rem;
+    color: var(--color-5);
+    font-family: 'Righteous', cursive !important;
+    font-family: 'Work Sans', sans-serif;
+}
+
+/* --------------------------- Contacto ---------------------------*/
+.container-contacto {
+    padding-top: 100px;
+}
+
+.container-contacto h2{
+    padding-bottom: 50px;
+    font-size: 3rem;
+    color: var(--color-5);
+    font-family: 'Righteous', cursive !important;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.responsive-iframe-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.responsive-iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --------------------------- Responsividad ---------------------------*/
+@media screen and (max-width:575px) {
+    svg {
+        width: 200px;
+    }
+}
